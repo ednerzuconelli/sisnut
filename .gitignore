@@ -1,6 +1,4 @@
-/iss/target/*.jar
-/iss/target
-/iss/*.classpath
-/iss/*.project
-/iss/.settings
-/iss/.metadata
+/target/
+/*.classpath
+/*.project
+/.settings
