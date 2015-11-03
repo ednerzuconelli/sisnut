@@ -43,7 +43,7 @@ public class Pessoa  implements Serializable{
 	private DateTime  dataNascimento;
 	@Column(name="contato", nullable=false, length=128)
 	private String contato;
-	@Column
+	@Column(name="ativo")
 	private Integer ativo;
 	  
 	@ManyToOne(fetch=FetchType.EAGER)
