@@ -26,4 +26,25 @@ public class CategoriaProduto  implements Serializable{
 	private String categoriaproduto;
 	@Column(name="ativo")
 	private Integer ativo;
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getCategoriaproduto() {
+		return categoriaproduto;
+	}
+	public void setCategoriaproduto(String categoriaproduto) {
+		this.categoriaproduto = categoriaproduto;
+	}
+	public Integer getAtivo() {
+		return ativo;
+	}
+	public void setAtivo(Integer ativo) {
+		this.ativo = ativo;
+	}
+	
+	
 }

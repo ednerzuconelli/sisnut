@@ -45,5 +45,62 @@ public class Produto implements Serializable {
 	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)
 	private CategoriaProduto categoriaproduto;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getProduto() {
+		return produto;
+	}
+
+	public void setProduto(String produto) {
+		this.produto = produto;
+	}
+
+	public Double getValorvenda() {
+		return valorvenda;
+	}
+
+	public void setValorvenda(Double valorvenda) {
+		this.valorvenda = valorvenda;
+	}
+
+	public Double getValorcusto() {
+		return valorcusto;
+	}
+
+	public void setValorcusto(Double valorcusto) {
+		this.valorcusto = valorcusto;
+	}
+
+	public Double getEstoque() {
+		return estoque;
+	}
+
+	public void setEstoque(Double estoque) {
+		this.estoque = estoque;
+	}
+
+	public Integer getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Integer ativo) {
+		this.ativo = ativo;
+	}
+
+	public CategoriaProduto getCategoriaproduto() {
+		return categoriaproduto;
+	}
+
+	public void setCategoriaproduto(CategoriaProduto categoriaproduto) {
+		this.categoriaproduto = categoriaproduto;
+	}
+	
 	
 }

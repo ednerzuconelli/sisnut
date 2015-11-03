@@ -68,6 +68,7 @@ public class Pessoa  implements Serializable{
 	@JoinColumn(name="tipopessoa_id", updatable=true, insertable=true, nullable=true)
 	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)
+	
 	private TipoPessoa tipopessoa;
 
 	public Integer getCod() {

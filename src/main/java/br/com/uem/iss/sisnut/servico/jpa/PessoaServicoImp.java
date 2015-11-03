@@ -1,6 +1,8 @@
 package br.com.uem.iss.sisnut.servico.jpa;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -17,20 +19,35 @@ import br.com.uem.iss.sisnut.servico.PessoaServico;
 public class PessoaServicoImp implements PessoaServico {
 
 	@Autowired
-	private PessoaRepositorio pessoaRepositorio;
+	private PessoaRepositorio pessoarepositorio;
 	
 	@Transactional(readOnly=true)
 	@Override
 	public Pessoa getByCod(Integer cod) {
 		// TODO Auto-generated method stub
-		return pessoaRepositorio.findOne(cod);
+		return pessoarepositorio.findOne(cod);
 	}
 	
 	@Transactional
 	@Override
 	public void save(Pessoa pessoa) {
-		pessoaRepositorio.save(pessoa);
+		pessoarepositorio.save(pessoa);
 		
+	}
+
+	
+	@Transactional
+	@Override
+	public void delete(Integer id) {
+		// TODO Auto-generated method stub
+		pessoarepositorio.delete(id);
+	}
+
+	@Transactional
+	@Override
+	public List<Pessoa> findAll() {
+		// TODO Auto-generated method stub
+		return (List<Pessoa>) pessoarepositorio.findAll();
 	}
 
 }

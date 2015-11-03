@@ -25,6 +25,7 @@ public class TipoEmail implements Serializable {
 	@NotNull @NotEmpty
 	@Column(name="tipo", nullable=false, length=128)
 	private String tipo;
+	
 	public Integer getId() {
 		return id;
 	}
