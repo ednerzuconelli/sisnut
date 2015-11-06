@@ -8,7 +8,18 @@
     <persistence-context/>
 
     <view-state id="inicio" view="index.xhtml" >
-      
+      	<transition on="produto" to="cadastroProduto">
+      	   
+ 		</transition>
+    </view-state>
+    
+    <view-state id="cadastroProduto" view="cadastro_produto.xhtml"  >
+      	<on-entry >
+        	<evaluate expression="produtoControle.newProdutoBean()" result="flowScope.produtoBean" />
+      	</on-entry>
+      	<transition on="salvar" to="inicio">
+      		<evaluate expression="produtoControle.salveProduto(flowScope.produtoBean,  messageContext)"/>
+ 		</transition>  
     </view-state>
     
 

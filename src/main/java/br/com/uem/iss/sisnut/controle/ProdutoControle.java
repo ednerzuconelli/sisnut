@@ -19,6 +19,7 @@ public class ProdutoControle {
 	
 	 public ProdutoBean newProdutoBean(){
 	    	Produto produto = new Produto();
+	    	System.out.println("teste para saber");
 	    	return new ProdutoBean(produto, new EventFactorySupport().success(this));
 	    }
 	

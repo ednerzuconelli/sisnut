@@ -19,13 +19,7 @@
 	 	<property name="username" value="postgres" />
 		<property name="password" value="1" /> 
 	</bean>
-	 
-	 <!-- Initialize the database schema with test data -->
-	<!--<jdbc:initialize-database data-source="dataSource">
-		<jdbc:script location="classpath:schema.sql" />
-		<jdbc:script location="classpath:test-data.sql" />
-	</jdbc:initialize-database>
-	 -->
+	
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="emf"/>
     </bean>
