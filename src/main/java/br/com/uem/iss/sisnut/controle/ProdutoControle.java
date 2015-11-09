@@ -1,5 +1,7 @@
 package br.com.uem.iss.sisnut.controle;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
@@ -23,6 +25,10 @@ public class ProdutoControle {
 	    	return new ProdutoBean(produto, new EventFactorySupport().success(this));
 	    }
 	
+	public List<Produto> findAll(){
+		return produtoservico.findAll();
+	}
+	 
 	public Event salveProduto(ProdutoBean produtobean,MessageContext messageContext){
 		MessageBuilder messageBuilder=null;
 		try{
