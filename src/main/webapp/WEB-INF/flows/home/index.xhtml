@@ -1,20 +1,41 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
-                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:h="http://java.sun.com/jsf/html" 
       xmlns:ui="http://java.sun.com/jsf/facelets" 
       xmlns:p="http://primefaces.org/ui" 
-      xmlns:f="http://java.sun.com/jsf/core" lang="pt-br" xml:lang="pt-br">
+      xmlns:f="http://java.sun.com/jsf/core"  >
 <h:head>
-	<title>Sistema para Nutricionistas</title>
+    <link href="stylesheet.css" rel="stylesheet" type="text/css" />
 </h:head>
 <h:body>
-  <h:form>
-  <h1>Sistema para nutricionistas</h1> 
-  <p:commandButton value="produtos" action="produto"
-							ajax="false" process="@form" update="@this">
-						</p:commandButton>
-  </h:form>						
-</h:body>
-</html>
+    <div id="page">
+        <div id="header-container">
+            <div id="header">
+                <ui:insert name="header">
+                    <ui:include src="/WEB-INF/templates/header.xhtml" />
+                </ui:insert>
+            </div>
+        </div>
+
+		<div id="content-container">
+            <div id="content">
+                <ui:insert name="content">
+				  <h:form>
+				  
+				  <p:commandButton value="produtos" action="produto"
+											ajax="false" process="@form" update="@this">
+										</p:commandButton>
+				  </h:form>						
+				</ui:insert>
+            </div>
+        </div>  
+        <div id="footer-container">
+            <div id="footer">
+                <ui:insert name="footer">
+                    <ui:include src="/WEB-INF/templates/footer.xhtml" />
+                </ui:insert>
+            </div>
+        </div> 
+      </div>
+</h:body>    
+</ui:composition>
