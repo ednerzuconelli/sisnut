@@ -1,0 +1,39 @@
+ 
+<h:html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+     >
+<h:head>
+	<title>Sistema para Nutricionistas</title>
+	
+</h:head>
+<h:body>
+
+		<h:form id="form1" >
+			<h:messages>
+				<f:validateBean>
+					<h1>Cadastro de tipos de refeição</h1> 
+					<div class="ui-grid ui-grid-responsive">
+						<div class="ui-grid-row">
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="tprefeicao">#{msg['tiporefeicao']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="tprefeicao" value="#{tiporefeicaoBean.tiporefeicao.tiporefeicao}"
+									required="true" size="60" label="#{msg['tiporefeicao']}" />
+							</div>
+						</div>
+					</div>
+
+				<p:commandButton styleClass="input" value="#{msg[cadastrar]}"
+					action="salvar" ajax="false" process="@form" update="@this">
+				</p:commandButton>
+
+			</f:validateBean>
+			</h:messages>
+		</h:form>
+
+	</h:body>
+</h:html>

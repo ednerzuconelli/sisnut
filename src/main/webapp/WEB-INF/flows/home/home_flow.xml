@@ -11,6 +11,9 @@
       	<transition on="produto" to="listProduto">
       	   
  		</transition>
+ 		<transition on="tiporefeicao" to="cadastratiporefeicao"> </transition>   
+ 		
+    
     </view-state>
     
     <view-state id="listProduto" view="list_produto.xhtml" >
@@ -25,6 +28,15 @@
       	</on-entry>
       	<transition on="salvar" to="listProduto">
       		<evaluate expression="produtoControle.salveProduto(flowScope.produtoBean,  messageContext)"/>
+ 		</transition>  
+    </view-state>
+    
+    <view-state id="cadastratiporefeicao" view="cadastro_tiporefeicao.xhtml"  >
+      	<on-entry >
+        	<evaluate expression="tiporefeicaoControle.newTipoRefeicaoBean()" result="flowScope.tiporefeicaoBean" />
+      	</on-entry>
+      	<transition on="salvar" to="listProduto">
+      		<evaluate expression="tiporefeicaoControle.salveTipoRefeicao(flowScope.tiporefeicaoBean,  messageContext)"/>
  		</transition>  
     </view-state>
     
