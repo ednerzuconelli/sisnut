@@ -46,6 +46,12 @@ public class Produto implements Serializable {
 	@Cascade(CascadeType.ALL)
 	private CategoriaProduto categoriaproduto;
 
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="tipoproduto_id", updatable=true, insertable=true, nullable=true)
+	@Fetch(FetchMode.SELECT)
+	@Cascade(CascadeType.ALL)
+	private TipoRefeicao tiporefeicao;
+	
 	public Integer getId() {
 		return id;
 	}
