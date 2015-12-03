@@ -21,7 +21,6 @@ public class ProdutoControle {
 	
 	 public ProdutoBean newProdutoBean(){
 	    	Produto produto = new Produto();
-	    	System.out.println("teste para saber");
 	    	return new ProdutoBean(produto, new EventFactorySupport().success(this));
 	    }
 	
@@ -44,6 +43,26 @@ public class ProdutoControle {
 		}
 			
 		return new EventFactorySupport().success(this);
+		
+	}
+	
+	public Event deleteProduto(ProdutoBean produtobean, MessageContext messageContext){
+		MessageBuilder messageBuilder = null;
+		try{
+			System.out.println(" reste para saber se chega até aqui pois temos que saber1");
+			Produto produto = produtobean.getSelectedProduto();
+			System.out.println(" reste para saber se chega até aqui pois temos que saber2");
+			produtoservico.delete(produto.getId());
+		} catch (Throwable ex4){
+			  messageBuilder = new MessageBuilder().error();
+			  messageBuilder.code("erro.produto.delete");
+			  messageBuilder.arg(ex4);
+			  messageContext.addMessage(messageBuilder.build());
+			  return new EventFactorySupport().error(this);	
+		}
+			
+		return new EventFactorySupport().success(this);
+		
 		
 	}
 }

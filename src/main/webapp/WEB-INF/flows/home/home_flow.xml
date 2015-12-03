@@ -17,8 +17,13 @@
     </view-state>
     
     <view-state id="listProduto" view="list_produto.xhtml" >
-      	<transition on="produto" to="cadastroProduto">
-      	   
+      	<on-entry >
+      		<evaluate expression="produtoControle.findAll()"  result="flowScope.produtoBean"/>
+      	</on-entry>
+      	<transition on="produto" to="cadastroProduto"/>
+    
+ 		<transition on="delete" to="listProduto">
+      		<evaluate expression="produtoControle.deleteProduto(flowScope.produtoBean,  messageContext)"/>
  		</transition>
     </view-state>
     

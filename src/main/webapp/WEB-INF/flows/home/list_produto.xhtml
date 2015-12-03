@@ -1,43 +1,58 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
-                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:h="http://java.sun.com/jsf/html" 
-      xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:p="http://primefaces.org/ui" 
-      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-      xmlns:f="http://java.sun.com/jsf/core" lang="pt-br" xml:lang="pt-br">
+
+<h:html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 <h:head>
 	<title>Sistema para Nutricionistas</title>
 </h:head>
 <h:body>
-  <h:form id="form">
- 
-  <p:dataTable id="listProduto" var="produto" value="#{produtoControle.findAll()}"  emptyMessage="Nenhum Produto cadastrado">
-  	<f:facet name="header">
-       Produtos
-    </f:facet>
-       <p:column headerText="Id" filterBy="#{produto.id}" sortBy="{produto.id}"> 
-       	 <h:outputText value="#{produto.id}"  />
-       </p:column>
-       
-       <p:column headerText="Produto" filterBy="#{produto.produto}" sortBy="{produto.produto}"> 
-       	 <h:outputText value="#{produto.produto}" />
-       </p:column>
-                
-  
-               
- 	 <f:facet name="footer">
-                       <h:outputText value="Existem " />
-                       <h:outputText value="#{fn:length(produtoControle.findAll())}" />
-                       <h:outputText value=" produtos cadastradas. " />
-                        
-                       
-                   </f:facet>
+	<h:form id="form">
+		<p:messages>
+			<p:dataTable id="listProduto" var="produto"
+				value="#{produtoControle.findAll()}"
+				emptyMessage="Nenhum Produto cadastrado">
+				<f:facet name="header">
+                      Produtos
+                </f:facet>
+				<p:column headerText="Id" filterBy="#{produto.id}" width="105"
+					sortBy="{produto.id}">
+					<h:outputText value="#{produto.id}" />
+				</p:column>
 
-  </p:dataTable>
-  
-  <p:commandButton value="Novo Produto" action="produto"></p:commandButton>
-  </h:form>
+				<p:column headerText="Produto" filterBy="#{produto.produto}"
+					sortBy="{produto.produto}">
+					<h:outputText value="#{produto.produto}" />
+				</p:column>
+
+				<p:column headerText="Estoque" filterBy="#{produto.estoque}" width="105"
+					sortBy="{produto.estoque}">
+					<h:outputText value="#{produto.estoque}" />
+				</p:column>
+				
+				 <p:column  headerText="Delete" width="110">
+		               <p:commandButton value="Delete" icon="fa fa-fw fa-remove"
+		                  action="delete"  />                
+		                  
+		               
+		         </p:column>
+
+				<f:facet name="footer">
+					<h:outputText value="Existem " />
+					<h:outputText value="#{fn:length(produtoControle.findAll())}" />
+					<h:outputText value=" produtos cadastradas. " />
+
+
+				</f:facet>
+
+			</p:dataTable>
+
+			<p:commandButton value="Cadastrar produto" action="produto"></p:commandButton>
+			
+		</p:messages>
+	</h:form>
 </h:body>
-</html>
+</h:html>
