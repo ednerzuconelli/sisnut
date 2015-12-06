@@ -11,7 +11,8 @@
       	<transition on="produto" to="listProduto">
       	   
  		</transition>
- 		<transition on="tiporefeicao" to="cadastratiporefeicao"> </transition>   
+ 		<transition on="tiporefeicao" to="cadastratiporefeicao"> </transition>
+ 		<transition on="categoriaproduto" to="listCategoriaProduto"> </transition>   
  		
     
     </view-state>
@@ -26,6 +27,8 @@
       		<evaluate expression="produtoControle.deleteProduto(flowScope.produtoBean,  messageContext)"/>
  		</transition>
     </view-state>
+    
+    
     
     <view-state id="cadastroProduto" view="cadastro_produto.xhtml"  >
       	<on-entry >
@@ -45,5 +48,21 @@
  		</transition>  
     </view-state>
     
+     <view-state id="listCategoriaProduto" view="list_categoriaproduto.xhtml" >
+      	<on-entry >
+      		<evaluate expression="categoriaprodutoControle.getAll()"  result="flowScope.categoriaprodutoBean"/>
+      	</on-entry>
+      	<transition on="categoriaproduto" to="cadastroCategoriaProduto"/>
+    	
+    </view-state>
+    
+     <view-state id="cadastroCategoriaProduto" view="cadastro_categoriaproduto.xhtml"  >
+      	<on-entry >
+        	<evaluate expression="categoriaprodutoControle.newCategoriaProdutoBean()" result="flowScope.categoriaprodutoBean" />
+      	</on-entry>
+      	<transition on="salvar" to="listCategoriaProduto">
+      		<evaluate expression="categoriaprodutoControle.salveCategoriaProduto(flowScope.categoriaprodutoBean,  messageContext)"/>
+ 		</transition>  
+    </view-state>
 
 </flow>
