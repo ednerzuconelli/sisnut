@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.model.DataModel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,21 +23,25 @@ public class ProdutoBean implements Serializable {
 	private Produto produto = null;
 	private boolean value;
 	
-	private Produto selectedProduto;
+	public Produto selectedProduto;
 	
+	private DataModel produtos;
 	
 	@Autowired
 	private ProdutoServico produtoservico;
 	
 		
 	public ProdutoBean(){
+		
 	}
 	
+   
 	public ProdutoBean(Produto produto, Event event){
 		this.produto=produto;
 	}
 	
 	public Produto getProduto(){
+		
 		return produto;
 	}
 	

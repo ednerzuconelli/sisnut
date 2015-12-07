@@ -32,12 +32,8 @@ public class ProdutoServicoImp implements ProdutoServico {
 		// TODO Auto-generated method stub
 		produtorepositorio.save(produto);
 	}
-	@Transactional
-	@Override
-	public void delete(Integer id) {
-		// TODO Auto-generated method stub
-		produtorepositorio.delete(id);
-	}
+	
+	
 	@Transactional(readOnly=true)
 	@Override
 	public List<Produto> findAll() {

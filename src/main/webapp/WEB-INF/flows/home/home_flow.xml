@@ -8,15 +8,12 @@
     <persistence-context/>
 
     <view-state id="inicio" view="index.xhtml" >
-      	<transition on="produto" to="listProduto">
-      	   
- 		</transition>
- 		<transition on="tiporefeicao" to="cadastratiporefeicao"> </transition>   
- 		<transition on="cadusuario" to="cadastroUsuario"> </transition>
+      	<transition on="produto" to="listProduto"> </transition>
+ 		<transition on="tiporefeicao" to="cadastratiporefeicao"> </transition>
+ 		<transition on="categoriaproduto" to="listCategoriaProduto"> </transition>   
+	 	<transition on="cadusuario" to="cadastroUsuario"> </transition>
  		<transition on="cadpaciente" to="cadastroPaciente"> </transition>
- 		
-    
-    </view-state>
+ 	</view-state>
     
     <view-state id="listProduto" view="list_produto.xhtml" >
       	<on-entry >
@@ -25,7 +22,7 @@
       	<transition on="produto" to="cadastroProduto"/>
     
  		<transition on="delete" to="listProduto">
-      		<evaluate expression="produtoControle.deleteProduto(flowScope.produtoBean,  messageContext)"/>
+ 		    <evaluate expression="produtoControle.deleteProduto(produtoControle.findAll().size(), messageContext)"/>
  		</transition>
     </view-state>
     
@@ -65,5 +62,21 @@
  		</transition>  
     </view-state>
     
+     <view-state id="listCategoriaProduto" view="list_categoriaproduto.xhtml" >
+      	<on-entry >
+      		<evaluate expression="categoriaprodutoControle.getAll()"  result="flowScope.categoriaprodutoBean"/>
+      	</on-entry>
+      	<transition on="categoriaproduto" to="cadastroCategoriaProduto"/>
+    	
+    </view-state>
+    
+     <view-state id="cadastroCategoriaProduto" view="cadastro_categoriaproduto.xhtml"  >
+      	<on-entry >
+        	<evaluate expression="categoriaprodutoControle.newCategoriaProdutoBean()" result="flowScope.categoriaprodutoBean" />
+      	</on-entry>
+      	<transition on="salvar" to="listCategoriaProduto">
+      		<evaluate expression="categoriaprodutoControle.salveCategoriaProduto(flowScope.categoriaprodutoBean,  messageContext)"/>
+ 		</transition>  
+    </view-state>
 
 </flow>

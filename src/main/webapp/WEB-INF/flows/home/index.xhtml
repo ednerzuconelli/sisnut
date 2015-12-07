@@ -9,44 +9,22 @@
 	<ui:define name="content">
 		<div class="wrapper">
 			<div class="container">
-				<!-- <div class="favorites">
-					<h:form>
-						<ul>
-							<li><h:outputLink value="/scm/spring/matricula">
-									<i class="icon-4x icon-briefcase" />
-									<h:outputText value="Matricular" />
-								</h:outputLink></li>
-								<li><h:outputLink value="/scm/spring/certificado">
-										<i class="icon-4x icon-book" />
-										<h:outputText value="Emitir Certificado" />
-									</h:outputLink></li>
-
-								<li><h:outputLink value="/scm/spring/aluno">
-										<i class="icon-4x icon-group" />
-										<h:outputText value="Alunos" />
-									</h:outputLink></li>
-								<li><h:outputLink value="/scm/spring/transferencia">
-										<i class="icon-4x icon-refresh" />
-										<h:outputText value="Transferência" />
-									</h:outputLink></li>
-
-								
-						</ul>
-
-						<div class="clearfix"></div>
-					</h:form>
-				</div> -->
 				<h:form>
 					<div id="conteudo" class="col-md-9">
 						<div class="telainicial">
 							<div class="row">
 								<div class="col-md-4">
-									<p:commandButton styleClass="btn-info" value="produtos" action="produto" ajax="false"
+									<p:commandButton styleClass="btn-block" value="produtos" action="produto" ajax="false"
 										process="@form" update="@this">
 									</p:commandButton>
 								</div>
 								<div class="col-md-4">
-									<p:commandButton styleClass="btn-info" value="tipo refeicao" action="tiporefeicao"
+									<p:commandButton styleClass="btn-block" value="Categoria Produto" action="categoriaproduto"
+										ajax="false" process="@form" update="@this">
+									</p:commandButton>
+								</div>
+								<div class="col-md-4">
+									<p:commandButton styleClass="btn-block" value="tipo refeicao" action="tiporefeicao"
 										ajax="false" process="@form" update="@this">
 									</p:commandButton>
 								</div>

@@ -1,0 +1,51 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<h:head>
+	<title>Sistema para Nutricionistas</title>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:messages>
+			<p:dataTable id="listCategoriaProduto" var="categoriaproduto"
+				value="#{categoriaprodutoControle.getAll()}"
+				emptyMessage="Nenhuma Categoria do Produto cadastrado">
+				<f:facet name="header">
+                      Categoria de Produtos Cadastrados
+                </f:facet>
+				<p:column headerText="Id" filterBy="#{categoriaproduto.id}" width="105"
+					sortBy="{categoriaproduto.id}">
+					<h:outputText value="#{categoriaproduto.id}" />
+				</p:column>
+
+				<p:column headerText="Produto" filterBy="#{categoriaproduto.categoriaproduto}"
+					sortBy="{categoriaproduto.produto}">
+					<h:outputText value="#{categoriaproduto.categoriaproduto}" />
+				</p:column>
+				
+				 <p:column  headerText="Delete" width="110">
+		               <p:commandButton value="Delete" icon="fa fa-fw fa-remove"
+		                  action="delete"  />                
+		                  
+		               
+		         </p:column>
+
+				<f:facet name="footer">
+					<h:outputText value="Existem " />
+					<h:outputText value="#{fn:length(categoriaprodutoControle.getAll())}" />
+					<h:outputText value=" categoria de produtos cadastradas. " />
+
+
+				</f:facet>
+
+			</p:dataTable>
+
+			<p:commandButton value="Cadastrar categoria de produto" action="categoriaproduto"></p:commandButton>
+			
+		</p:messages>
+	</h:form>
+</h:body>
+</h:html>

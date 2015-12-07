@@ -1,11 +1,8 @@
-
-<h:html 
-	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<h:html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 <h:head>
 	<title>Sistema para Nutricionistas</title>
 </h:head>
@@ -14,9 +11,9 @@
 		<p:messages>
 			<p:dataTable id="listProduto" var="produto"
 				value="#{produtoControle.findAll()}"
-				emptyMessage="Nenhum Produto cadastrado">
+				emptyMessage="Nenhum Produto cadastrado" rowKey="#{produto.id}"  >
 				<f:facet name="header">
-                      Produtos
+                      Produtos Cadastrados
                 </f:facet>
 				<p:column headerText="Id" filterBy="#{produto.id}" width="105"
 					sortBy="{produto.id}">
@@ -33,9 +30,12 @@
 					<h:outputText value="#{produto.estoque}" />
 				</p:column>
 				
+				
 				 <p:column  headerText="Delete" width="110">
 		               <p:commandButton value="Delete" icon="fa fa-fw fa-remove"
-		                  action="delete"  />                
+		                  action="delete" update="listProduto">
+		                  <!-- <f:setPropertyActionListener value="#{produto}" target="#{produtoBean.getProduto()}" /> -->
+		                </p:commandButton>                  
 		                  
 		               
 		         </p:column>
