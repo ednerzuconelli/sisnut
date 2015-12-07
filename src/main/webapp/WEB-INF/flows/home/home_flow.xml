@@ -8,14 +8,10 @@
     <persistence-context/>
 
     <view-state id="inicio" view="index.xhtml" >
-      	<transition on="produto" to="listProduto">
-      	   
- 		</transition>
+      	<transition on="produto" to="listProduto"> </transition>
  		<transition on="tiporefeicao" to="cadastratiporefeicao"> </transition>
  		<transition on="categoriaproduto" to="listCategoriaProduto"> </transition>   
- 		
-    
-    </view-state>
+ 	</view-state>
     
     <view-state id="listProduto" view="list_produto.xhtml" >
       	<on-entry >
@@ -24,11 +20,9 @@
       	<transition on="produto" to="cadastroProduto"/>
     
  		<transition on="delete" to="listProduto">
-      		<evaluate expression="produtoControle.deleteProduto(flowScope.produtoBean,  messageContext)"/>
+ 		    <evaluate expression="produtoControle.deleteProduto(produtoControle.findAll().size(), messageContext)"/>
  		</transition>
     </view-state>
-    
-    
     
     <view-state id="cadastroProduto" view="cadastro_produto.xhtml"  >
       	<on-entry >

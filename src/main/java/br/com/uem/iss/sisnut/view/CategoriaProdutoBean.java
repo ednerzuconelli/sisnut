@@ -2,6 +2,9 @@ package br.com.uem.iss.sisnut.view;
 
 import java.io.Serializable;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,7 +22,6 @@ public class CategoriaProdutoBean implements Serializable {
 	
 	private CategoriaProduto categoriaproduto = null;
 	
-		
 	public CategoriaProdutoBean(){
 		
 	}
@@ -28,12 +30,14 @@ public class CategoriaProdutoBean implements Serializable {
 		this.categoriaproduto = categoriaproduto;
 	}
 
-	public CategoriaProduto getCategoriaProduto() {
+	public CategoriaProduto getCategoriaproduto() {
 		return categoriaproduto;
 	}
 
-	public void setCategoriaProduto(CategoriaProduto categoriaproduto) {
+	public void setCategoriaproduto(CategoriaProduto categoriaproduto) {
 		this.categoriaproduto = categoriaproduto;
 	}
+
+	
 	
 }

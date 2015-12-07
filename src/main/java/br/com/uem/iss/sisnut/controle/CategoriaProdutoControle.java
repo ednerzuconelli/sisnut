@@ -33,7 +33,7 @@ public class CategoriaProdutoControle {
 	public Event salveCategoriaProduto(CategoriaProdutoBean categoriaprodutobean,MessageContext messageContext){
 		MessageBuilder messageBuilder=null;
 		try{
-			CategoriaProduto categoriaproduto = categoriaprodutobean.getCategoriaProduto();
+			CategoriaProduto categoriaproduto = categoriaprodutobean.getCategoriaproduto();
 			categoriaproduto.setAtivo(1);
 			categoriaprodutoservico.save(categoriaproduto);
 		}catch (Throwable ex3){

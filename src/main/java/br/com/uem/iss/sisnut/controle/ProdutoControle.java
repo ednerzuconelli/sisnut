@@ -2,6 +2,8 @@ package br.com.uem.iss.sisnut.controle;
 
 import java.util.List;
 
+import javax.faces.model.DataModel;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
@@ -19,13 +21,21 @@ public class ProdutoControle {
 	@Autowired
 	private ProdutoServico produtoservico;
 	
+	private DataModel produtos;
+	
 	 public ProdutoBean newProdutoBean(){
 	    	Produto produto = new Produto();
 	    	return new ProdutoBean(produto, new EventFactorySupport().success(this));
 	    }
 	
 	public List<Produto> findAll(){
-		return produtoservico.findAll();
+		List<Produto> newp = null;
+		//System.out.print
+		//ProdutoBean produtobean = null;
+		
+		newp = produtoservico.findAll();
+		//produtobean.setProduto(newp.get(1));
+		return newp;
 	}
 	 
 	public Event salveProduto(ProdutoBean produtobean,MessageContext messageContext){
@@ -46,13 +56,12 @@ public class ProdutoControle {
 		
 	}
 	
-	public Event deleteProduto(ProdutoBean produtobean, MessageContext messageContext){
+	public Event deleteProduto(Integer id, MessageContext messageContext){
 		MessageBuilder messageBuilder = null;
 		try{
-			System.out.println(" reste para saber se chega até aqui pois temos que saber1");
-			Produto produto = produtobean.getSelectedProduto();
-			System.out.println(" reste para saber se chega até aqui pois temos que saber2");
-			produtoservico.delete(produto.getId());
+			Produto produto = produtoservico.getById(id);
+			produto.setAtivo(0);
+			produtoservico.save(produto);
 		} catch (Throwable ex4){
 			  messageBuilder = new MessageBuilder().error();
 			  messageBuilder.code("erro.produto.delete");

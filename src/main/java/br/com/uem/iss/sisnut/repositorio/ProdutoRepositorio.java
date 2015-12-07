@@ -17,9 +17,6 @@ public interface ProdutoRepositorio extends  CrudRepository<Produto,Integer>, Jp
 	@Query("select p from Produto p where p.ativo=1 and p.id=:id")
 	public Produto getById(@Param("id") Integer id);
 	
-	@Query("update Produto set ativo = 0 where (id>0 and id =:id)")
-	public void delete(@Param("id") Integer id);
-	
 	@Query("select p from Produto p where p.ativo=1")
 	public List<Produto> findAll();
 }

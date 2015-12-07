@@ -14,12 +14,41 @@
 					<h1>Cadastro de produtos</h1> 
 					<div class="ui-grid ui-grid-responsive">
 						<div class="ui-grid-row">
+							
 							<div class="ui-grid-col-4">
-								<h:outputLabel for="razao">#{msg['produto']}</h:outputLabel>
+								<h:outputLabel for="produto">#{msg['produto']}</h:outputLabel>
 							</div>
 							<div class="ui-grid-col-8">
-								<p:inputText id="razao" value="#{produtoBean.produto.produto}"
+								<p:inputText id="produto" value="#{produtoBean.produto.produto}"
 									required="true" size="60" label="#{msg['produto']}" />
+							</div>
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="estoque">#{msg['estoque']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="estoque" value="#{produtoBean.produto.estoque}"
+									required="true" size="20" label="#{msg['estoque']}" />
+							</div>
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="valorvenda">#{msg['valor_venda_produto']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="valorvenda" value="#{produtoBean.produto.valorvenda}"
+									required="true" size="20" label="#{msg['valor_venda_produto']}" />
+							</div>
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="valorcusto">#{msg['valor_custo_produto']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="valorcusto" value="#{produtoBean.produto.valorcusto}"
+									required="true" size="20" label="#{msg['valor_custo_produto']}" />
+							</div>
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="categoriaproduto">#{msg['valor_custo_produto']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="categoriaproduto" value="#{produtoBean.produto.categoriaproduto}"
+									required="true" size="20" label="#{msg['valor_custo_produto']}" />
 							</div>
 						</div>
 					</div>

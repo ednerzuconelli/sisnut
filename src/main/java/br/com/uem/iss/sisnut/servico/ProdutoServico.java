@@ -8,6 +8,5 @@ public interface ProdutoServico {
 	
 	public Produto getById(Integer id);
 	public void save(Produto produto);
-	public void delete(Integer id);
 	public List<Produto> findAll();
 }
