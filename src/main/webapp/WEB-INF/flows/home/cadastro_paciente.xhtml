@@ -1,0 +1,83 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Sistema para Nutricionistas</title>
+</h:head>
+<h:body>
+
+		<h:form id="form1" >
+			<h:messages>
+				<f:validateBean>
+					<h1>Cadastro de Paciente</h1> 
+					<div class="ui-grid ui-grid-responsive">
+						<div class="ui-grid-row">
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="nome">#{msg['nome']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="nome" value="#{pacienteBean.paciente.nome}"
+									required="true" size="60" label="nome" />
+							</div>
+						</div>
+						<div class="ui-grid-row">
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="dataNasc">#{msg['dataNasc']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="dataNasc" value="#{pacienteBean.paciente.dataNascimento}"
+									required="true" size="60" label="dataNasc" type="date"/>
+							</div>
+						</div>
+						<div class="ui-grid-row">
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="end">#{msg['end']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="end" value="#{pacienteBean.paciente.endereco.rua}"
+									required="true" size="60" label="end" />
+							</div>
+						</div>
+						<div class="ui-grid-row">
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="tel">#{msg['tel']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="tel" value="#{pacienteBean.paciente.telefone.telefone}"
+									required="true" size="60" label="tel" />
+							</div>
+						</div>
+						<div class="ui-grid-row">
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="email">#{msg['email']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="email" value="#{pacienteBean.paciente.email.email}"
+									required="true" size="60" label="email" />
+							</div>
+						</div>
+						<div class="ui-grid-row">
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="contato">#{msg['con']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="contato" value="#{pacienteBean.paciente.contato}"
+									required="true" size="60" label="contato" />
+							</div>
+						</div>
+					</div>
+
+
+					<h:panelGrid columns="1">
+						<p:commandButton value="Cadastrar" action="salvar" >
+						</p:commandButton>
+					</h:panelGrid>
+					
+				</f:validateBean>
+			</h:messages>
+		</h:form>
+
+	</h:body>
+</h:html>

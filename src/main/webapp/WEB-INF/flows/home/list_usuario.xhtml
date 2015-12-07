@@ -1,0 +1,58 @@
+
+<h:html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<h:head>
+	<title>Sistema para Nutricionistas</title>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:messages>
+			<p:dataTable id="listUsuario" var="usuario"
+				value="#{usuarioControle.findAll()}"
+				emptyMessage="Nenhum Produto cadastrado">
+				<f:facet name="header">
+                      Usuários
+                </f:facet>
+				<p:column headerText="Id" filterBy="#{usuario.id}" width="105"
+					sortBy="{usuario.id}">
+					<h:outputText value="#{usuario.id}" />
+				</p:column>
+
+				<p:column headerText="Usuario" filterBy="#{usuario.login}"
+					sortBy="{usuario.login}">
+					<h:outputText value="#{usuario.login}" />
+				</p:column>
+
+				<p:column headerText="Email" filterBy="#{usuario.email}" width="105"
+					sortBy="{usuario.email}">
+					<h:outputText value="#{usuairo.email}" />
+				</p:column>
+				
+				 <p:column  headerText="Delete" width="110">
+		               <p:commandButton value="Delete" icon="fa fa-fw fa-remove"
+		                  action="delete"  />                
+		                  
+		               
+		         </p:column>
+
+				<f:facet name="footer">
+					<h:outputText value="Existem " />
+					<h:outputText value="#{fn:length(usuarioControle.findAll())}" />
+					<h:outputText value=" usuários cadastradas. " />
+
+
+				</f:facet>
+
+			</p:dataTable>
+
+			<p:commandButton value="Cadastrar produto" action="produto"></p:commandButton>
+			
+		</p:messages>
+	</h:form>
+</h:body>
+</h:html>

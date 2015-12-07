@@ -1,0 +1,56 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Sistema para Nutricionistas</title>
+</h:head>
+<h:body>
+
+		<h:form id="form1" >
+			<h:messages>
+				<f:validateBean>
+					<h1>Cadastro de Usuários</h1> 
+					<div class="ui-grid ui-grid-responsive">
+						<div class="ui-grid-row">
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="login">#{msg['usuario']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="login" value="#{usuarioBean.usuario.login}"
+									required="true" size="60" label="login" />
+							</div>
+						</div>
+						<div class="ui-grid-row">
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="senha">#{msg['senha']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="senha" value="#{usuarioBean.usuario.senha}"
+									required="true" size="60" label="senha" type="password"/>
+							</div>
+						</div>
+						<div class="ui-grid-row">
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="email">#{msg['email']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="email" value="#{usuarioBean.usuario.email}"
+									required="true" size="60" label="email" />
+							</div>
+						</div>
+					</div>
+
+
+					<h:panelGrid columns="1">
+						<p:commandButton value="Cadastrar" action="salvar" >
+						</p:commandButton>
+					</h:panelGrid>
+					
+				</f:validateBean>
+			</h:messages>
+		</h:form>
+
+	</h:body>
+</h:html>

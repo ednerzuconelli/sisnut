@@ -12,6 +12,8 @@
       	   
  		</transition>
  		<transition on="tiporefeicao" to="cadastratiporefeicao"> </transition>   
+ 		<transition on="cadusuario" to="cadastroUsuario"> </transition>
+ 		<transition on="cadpaciente" to="cadastroPaciente"> </transition>
  		
     
     </view-state>
@@ -25,6 +27,24 @@
  		<transition on="delete" to="listProduto">
       		<evaluate expression="produtoControle.deleteProduto(flowScope.produtoBean,  messageContext)"/>
  		</transition>
+    </view-state>
+    
+    <view-state id="cadastroUsuario" view="cadastro_usuario.xhtml" >
+      	<on-entry >
+        	<evaluate expression="usuarioControle.newUsuarioBean()" result="flowScope.usuarioBean" />
+      	</on-entry>
+      	<transition on="salvar" to="inicio">
+      	    <evaluate expression="usuarioControle.salveUsuario(flowScope.usuarioBean, messageContext)"></evaluate>
+      	</transition>
+    </view-state>
+    
+    <view-state id="cadastroPaciente" view="cadastro_paciente.xhtml" >
+      	<on-entry >
+        	<evaluate expression="pacienteControle.newPacienteBean()" result="flowScope.pacienteBean" />
+      	</on-entry>
+      	<transition on="salvar" to="inicio">
+      	    <evaluate expression="pacienteControle.salvePaciente(flowScope.pacienteBean, messageContext)"></evaluate>
+      	</transition>
     </view-state>
     
     <view-state id="cadastroProduto" view="cadastro_produto.xhtml"  >
