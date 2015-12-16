@@ -56,10 +56,11 @@ public class ProdutoControle {
 		
 	}
 	
-	public Event deleteProduto(Integer id, MessageContext messageContext){
+	public Event deleteProduto(MessageContext messageContext){
 		MessageBuilder messageBuilder = null;
 		try{
-			Produto produto = produtoservico.getById(id);
+			
+			Produto produto = produtoservico.getById(produtoservico.findAll().size());
 			produto.setAtivo(0);
 			produtoservico.save(produto);
 		} catch (Throwable ex4){
