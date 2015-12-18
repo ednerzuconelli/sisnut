@@ -9,7 +9,7 @@
 
     <view-state id="inicio" view="index.xhtml" >
       	<transition on="produto" to="listProduto"> </transition>
- 		<transition on="tiporefeicao" to="cadastratiporefeicao"> </transition>
+ 		<transition on="tiporefeicao" to="listTipoRefeicao"> </transition>
  		<transition on="categoriaproduto" to="listCategoriaProduto"> </transition>   
 	 	<transition on="cadusuario" to="cadastroUsuario"> </transition>
  		<transition on="cadpaciente" to="cadastroPaciente"> </transition>
@@ -53,11 +53,19 @@
  		</transition>  
     </view-state>
     
-    <view-state id="cadastratiporefeicao" view="cadastro_tiporefeicao.xhtml"  >
+    <view-state id="listTipoRefeicao" view="list_tiporefeicao.xhtml" >
+      	<on-entry >
+      		<evaluate expression="tiporefeicaoControle.findAll()"  result="flowScope.tiporefeicaoBean"/>
+      	</on-entry>
+      	<transition on="tiporefeicao" to="cadastraTipoRefeicao"/>
+    	
+    </view-state>
+    
+    <view-state id="cadastraTipoRefeicao" view="cadastro_tiporefeicao.xhtml"  >
       	<on-entry >
         	<evaluate expression="tiporefeicaoControle.newTipoRefeicaoBean()" result="flowScope.tiporefeicaoBean" />
       	</on-entry>
-      	<transition on="salvar" to="listProduto">
+      	<transition on="salvar" to="listTipoRefeicao">
       		<evaluate expression="tiporefeicaoControle.salveTipoRefeicao(flowScope.tiporefeicaoBean,  messageContext)"/>
  		</transition>  
     </view-state>
@@ -69,6 +77,7 @@
       	<transition on="categoriaproduto" to="cadastroCategoriaProduto"/>
     	
     </view-state>
+    
     
      <view-state id="cadastroCategoriaProduto" view="cadastro_categoriaproduto.xhtml"  >
       	<on-entry >
