@@ -14,7 +14,7 @@
 					<h1>Cadastro de produtos</h1> 
 					<div class="ui-grid ui-grid-responsive">
 						<div class="ui-grid-row">
-							
+						<h:panelGrid columns="2">	
 							<div class="ui-grid-col-4">
 								<h:outputLabel for="produto">#{msg['produto']}</h:outputLabel>
 							</div>
@@ -43,13 +43,7 @@
 								<p:inputText id="valorcusto" value="#{produtoBean.produto.valorcusto}"
 									required="true" size="20" label="#{msg['valor_custo_produto']}" />
 							</div>
-							<div class="ui-grid-col-4">
-								<h:outputLabel for="categoriaproduto">#{msg['valor_custo_produto']}</h:outputLabel>
-							</div>
-							<div class="ui-grid-col-8">
-								<p:inputText id="categoriaproduto" value="#{produtoBean.produto.categoriaproduto}"
-									required="true" size="20" label="#{msg['valor_custo_produto']}" />
-							</div>
+						</h:panelGrid>		
 						</div>
 					</div>
 
