@@ -13,7 +13,17 @@
  		<transition on="categoriaproduto" to="listCategoriaProduto"> </transition>   
 	 	<transition on="cadusuario" to="cadastroUsuario"> </transition>
  		<transition on="cadpaciente" to="cadastroPaciente"> </transition>
+ 		<transition on="listUsuario" to="listUsuario"> </transition>
  	</view-state>
+    
+    <view-state id="listUsuario" view="list_usuario.xhtml" >
+      	<on-entry >
+      		<evaluate expression="usuarioControle.findAll()"  result="flowScope.usuarioBean"/>
+      	</on-entry>
+      	<transition on="cadastroUsuario" to="cadastroUsuario"/>
+    
+ 		
+    </view-state>
     
     <view-state id="listProduto" view="list_produto.xhtml" >
       	<on-entry >

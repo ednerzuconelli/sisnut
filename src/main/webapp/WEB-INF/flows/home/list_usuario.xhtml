@@ -14,7 +14,7 @@
 		<p:messages>
 			<p:dataTable id="listUsuario" var="usuario"
 				value="#{usuarioControle.findAll()}"
-				emptyMessage="Nenhum Produto cadastrado">
+				emptyMessage="Nenhum usuário cadastrado">
 				<f:facet name="header">
                       Usuários
                 </f:facet>
@@ -50,7 +50,7 @@
 
 			</p:dataTable>
 
-			<p:commandButton value="Cadastrar produto" action="produto"></p:commandButton>
+			<p:commandButton value="Cadastrar Usuário" action="cadastroUsuario"></p:commandButton>
 			
 		</p:messages>
 	</h:form>
