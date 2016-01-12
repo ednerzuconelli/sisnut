@@ -1,5 +1,6 @@
 package br.com.uem.iss.sisnut.view;
 
+
 import java.io.Serializable;
 import java.util.List;
 
