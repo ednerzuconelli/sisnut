@@ -39,7 +39,7 @@ public class UsuarioControle {
 			
 		}catch (Throwable ex3){
 			  messageBuilder = new MessageBuilder().error();
-			  messageBuilder.code("erro.produto.salve");
+			  messageBuilder.code("erro.usuario.salve");
 			  messageBuilder.arg(ex3);
 			  messageContext.addMessage(messageBuilder.build());
 			  return new EventFactorySupport().error(this);	

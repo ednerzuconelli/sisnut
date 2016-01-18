@@ -36,7 +36,7 @@
 								<h:outputLabel for="end">#{msg['end']}</h:outputLabel>
 							</div>
 							<div class="ui-grid-col-8">
-								<p:inputText id="end" value="#{pacienteBean.paciente.endereco.rua}"
+								<p:inputText id="end" value="#{pacienteBean.rua}"
 									required="true" size="60" label="end" />
 							</div>
 						</div>
@@ -45,7 +45,7 @@
 								<h:outputLabel for="tel">#{msg['tel']}</h:outputLabel>
 							</div>
 							<div class="ui-grid-col-8">
-								<p:inputText id="tel" value="#{pacienteBean.paciente.telefone.telefone}"
+								<p:inputText id="tel" value="#{pacienteBean.telefone}"
 									required="true" size="60" label="tel" />
 							</div>
 						</div>
@@ -54,7 +54,7 @@
 								<h:outputLabel for="email">#{msg['email']}</h:outputLabel>
 							</div>
 							<div class="ui-grid-col-8">
-								<p:inputText id="email" value="#{pacienteBean.paciente.email.email}"
+								<p:inputText id="email" value="#{pacienteBean.email}"
 									required="true" size="60" label="email" />
 							</div>
 						</div>

@@ -1,5 +1,7 @@
 package br.com.uem.iss.sisnut.servico.jpa;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,12 @@ public class PacienteServicoImp implements PacienteServico {
 		// TODO Auto-generated method stub
 		pacienteRepositorio.save(paciente);
 		
+	}
+
+	@Override
+	public List<Paciente> findAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

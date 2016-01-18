@@ -12,7 +12,7 @@
  		<transition on="tiporefeicao" to="listTipoRefeicao"> </transition>
  		<transition on="categoriaproduto" to="listCategoriaProduto"> </transition>   
 	 	<transition on="cadusuario" to="cadastroUsuario"> </transition>
- 		<transition on="cadpaciente" to="cadastroPaciente"> </transition>
+ 		<transition on="listPaciente" to="listPaciente"> </transition>
  		<transition on="listUsuario" to="listUsuario"> </transition>
  	</view-state>
     
@@ -36,6 +36,13 @@
  		</transition>
     </view-state>
     
+    <view-state id="listPaciente" view="list_paciente.xhtml" >
+      	
+      	<transition on="cadastroPaciente" to="cadastroPaciente"/>
+    
+ 	
+    </view-state>
+    
     <view-state id="cadastroUsuario" view="cadastro_usuario.xhtml" >
       	<on-entry >
         	<evaluate expression="usuarioControle.newUsuarioBean()" result="flowScope.usuarioBean" />
@@ -49,7 +56,7 @@
       	<on-entry >
         	<evaluate expression="pacienteControle.newPacienteBean()" result="flowScope.pacienteBean" />
       	</on-entry>
-      	<transition on="salvar" to="inicio">
+      	<transition on="salvar" to="listPaciente">
       	    <evaluate expression="pacienteControle.salvePaciente(flowScope.pacienteBean, messageContext)"></evaluate>
       	</transition>
     </view-state>
