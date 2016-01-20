@@ -52,7 +52,7 @@
       	</transition>
     </view-state>
     
-    <view-state id="cadastroPaciente" view="cadastro_paciente.xhtml" >
+    <view-state id="cadastroPaciente" view="cadastro_paciente2.xhtml" >
       	<on-entry >
         	<evaluate expression="pacienteControle.newPacienteBean()" result="flowScope.pacienteBean" />
       	</on-entry>

@@ -31,6 +31,11 @@
 									required="true" size="60" label="dataNasc" type="date"/>
 							</div>
 						</div>
+						<h:outputLabel for="inplaceEnd" value="Endereço:" />
+						<form id="endereco">
+						<p:inplace label="Cadastrar Endereço" id="inplaceEnd">
+						
+						
 						<div class="ui-grid-row">
 							<div class="ui-grid-col-4">
 								<h:outputLabel for="end">#{msg['end']}</h:outputLabel>
@@ -40,6 +45,39 @@
 									required="true" size="60" label="end" />
 							</div>
 						</div>
+						<div class="ui-grid-row">
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="num">#{msg['num']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="num" 
+									required="true" size="60" label="num" />
+							</div>
+						</div>
+						
+						<div class="ui-grid-row">
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="com">#{msg['com']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="com" 
+									required="true" size="60" label="com" />
+							</div>
+						</div>
+						
+						<div class="ui-grid-row">
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="bai">#{msg['bai']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="bai"
+									required="true" size="60" label="bai" />
+							</div>
+						</div>
+						</p:inplace>		
+						</form>
+						
+						
 						<div class="ui-grid-row">
 							<div class="ui-grid-col-4">
 								<h:outputLabel for="tel">#{msg['tel']}</h:outputLabel>

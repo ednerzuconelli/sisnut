@@ -1,0 +1,66 @@
+
+<h:html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<h:head>
+	<title>Sistema para Nutricionistas</title>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:messages>
+			<p:dataTable id="listPaciente" var="paciente"
+				value="#{pacienteControle.findAll()}"
+				emptyMessage="Nenhum paciente cadastrado">
+				<f:facet name="header">
+                      Paciente
+                </f:facet>
+				<p:column headerText="Cod" filterBy="#{paciente.cod}" width="105"
+					sortBy="{paciente.cod}">
+					<h:outputText value="#{paciente.cod}" />
+				</p:column>
+
+				<p:column headerText="Nome" filterBy="#{paciente.nome}"
+					sortBy="{paciente.nome}">
+					<h:outputText value="#{paciente.nome}" />
+				</p:column>
+
+				<p:column headerText="Data de Cadastro" filterBy="#{paciente.dataCadatro}" width="105"
+					sortBy="{paciente.dataCadatro}">
+					<h:outputText value="#{paciente.dataCadatro}" />
+				</p:column>
+				
+				<p:column headerText="Data de Nascimento" filterBy="#{paciente.dataNascimento}" width="105"
+					sortBy="{paciente.dataNascimento}">
+					<h:outputText value="#{paciente.dataNascimento}" />
+				</p:column>
+				
+				
+				
+				
+				 <p:column  headerText="Delete" width="110">
+		               <p:commandButton value="Delete" icon="fa fa-fw fa-remove"
+		                  action="delete"  />                
+		                  
+		               
+		         </p:column>
+
+				<f:facet name="footer">
+					<h:outputText value="Existem " />
+					<h:outputText value="#{fn:length(pacienteControle.findAll())}" />
+					<h:outputText value=" pacientes cadastradas. " />
+
+
+				</f:facet>
+
+			</p:dataTable>
+
+			<p:commandButton value="Cadastrar Paciente" action="cadastroPaciente"></p:commandButton>
+			
+		</p:messages>
+	</h:form>
+</h:body>
+</h:html>

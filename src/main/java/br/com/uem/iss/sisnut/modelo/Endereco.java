@@ -48,7 +48,7 @@ public class Endereco implements Serializable {
 	@Cascade(CascadeType.ALL)
 	private Cidade cidade;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="tipoendereco_id", updatable=true, insertable=true, nullable=true)
 	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)

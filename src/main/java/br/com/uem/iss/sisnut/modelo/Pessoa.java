@@ -1,6 +1,7 @@
 package br.com.uem.iss.sisnut.modelo;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -46,11 +48,11 @@ public class Pessoa  implements Serializable{
 	@Column(name="ativo")
 	private Integer ativo;
 	  
-	@ManyToOne(fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="endereco")
 	@JoinColumn(name="endereco_id", updatable=true, insertable=true, nullable=true)
 	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)
-	private Endereco endereco;
+	private List<Endereco> endereco;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="telefone_id", updatable=true, insertable=true, nullable=true)
@@ -119,11 +121,11 @@ public class Pessoa  implements Serializable{
 		this.ativo = ativo;
 	}
 
-	public Endereco getEndereco() {
+	public List<Endereco> getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(Endereco endereco) {
+	public void setEndereco(List<Endereco> endereco) {
 		this.endereco = endereco;
 	}
 

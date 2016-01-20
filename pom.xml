@@ -512,10 +512,12 @@
             <containerId>tomcat8x</containerId>
             <type>installed</type>
             <home>${CATALINA_HOME}</home>
+            <timeout>999999999</timeout>
           </container>
           <configuration>
             <type>existing</type>
             <home>${CATALINA_HOME}</home>
+            
             <properties>
               <cargo.tomcat.manager.url>http://localhost:8080/manager</cargo.tomcat.manager.url>
               <cargo.remote.username>tomcat</cargo.remote.username>

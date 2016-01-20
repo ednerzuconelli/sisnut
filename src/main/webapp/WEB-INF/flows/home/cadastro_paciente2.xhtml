@@ -1,0 +1,93 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Sistema para Nutricionistas</title>
+</h:head>
+<h:body>
+
+		<h:form id="form1" >
+			<h:messages>
+				<f:validateBean>
+					<h1>Cadastro de Paciente</h1> 
+					<p:wizard flowListener="#{pacienteControle.onFlowProcess}">
+        				<p:tab id="pessoal" title="Pessoal">
+            				<p:panel header="Dados Pessoais">
+                				<p:messages />
+                				<h:panelGrid columns="2" columnClasses="label, value">
+                    				<h:outputText value="Nome: *" />
+                    				<p:inputText  required="true" label="Nome"  value="#{pacienteBean.paciente.nome}"/>
+ 
+     					            <h:outputText value="Data Nascimento: *" />
+                    				<p:inputText type="date" required="true" label="Data Nascimento" value="#{pacienteBean.paciente.dataNascimento}"/>
+ 
+                    		
+ 
+				             
+                				</h:panelGrid>
+            				</p:panel>
+        				</p:tab>
+        				
+        				<p:tab id="Endereco" title="Endereço">
+            				<p:panel header="Dados Endereço">
+                				<p:messages />
+                				<h:panelGrid columns="2" columnClasses="label, value">
+                    				<h:outputText value="Rua: *" />
+                    				<p:inputText  required="true" label="Rua"  value="#{pacienteControle.rua}"/>
+ 
+     					            <h:outputText value="Número: *" />
+                    				<p:inputText required="true" label="Número" value="#{pacienteControle.numero}"/>
+									 
+                    				<h:outputText value="Complemento: " />
+                    				<p:inputText required="false" label="Complemento" value="#{pacienteControle.complemento}"/>
+ 
+ 									<p:commandLink value="Inserir" update="display" />
+ 									
+    								<p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
+        								<p:dataList value="#{checkboxView.selectedCities}" var="city" emptyMessage="Sem endereço Cadastrado">#{city}</p:dataList>
+									</p:outputPanel>
+ 									
+				             
+                				</h:panelGrid>
+            				</p:panel>
+        				</p:tab>
+        				
+        				<p:tab id="Telefone" title="Telefone">
+            				<p:panel header="Dados Telefone">
+                				<p:messages />
+                				<h:panelGrid columns="2" columnClasses="label, value">
+                    				<h:outputText value="Rua: *" />
+                    				<p:inputText  required="true" label="Rua"  value="#{pacienteControle.rua}"/>
+ 
+     					            <h:outputText value="Número: *" />
+                    				<p:inputText required="true" label="Número" value="#{pacienteControle.numero}"/>
+									 
+                    				<h:outputText value="Complemento: " />
+                    				<p:inputText required="false" label="Complemento" value="#{pacienteControle.complemento}"/>
+ 
+ 									<p:commandLink value="Inserir" update="display" />
+ 									
+    								<p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
+        								<p:dataList value="#{checkboxView.selectedCities}" var="city" emptyMessage="Sem endereço Cadastrado">#{city}</p:dataList>
+									</p:outputPanel>
+ 									
+				             
+                				</h:panelGrid>
+            				</p:panel>
+        				</p:tab>
+        	</p:wizard>			
+
+
+					<h:panelGrid columns="1">
+						<p:commandButton value="Cadastrar" action="salvar" >
+						</p:commandButton>
+					</h:panelGrid>
+					
+				</f:validateBean>
+			</h:messages>
+		</h:form>
+
+	</h:body>
+</h:html>

@@ -2,6 +2,7 @@ package br.com.uem.iss.sisnut.controle;
 
 import java.util.List;
 
+import org.primefaces.event.FlowEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
@@ -20,6 +21,9 @@ import br.com.uem.iss.sisnut.view.UsuarioBean;
 
 @Component("pacienteControle")
 public class PacienteControle {
+	private List<Endereco> endereco;
+	private String rua,numero,complemento,bairro;
+	
 	
 	@Autowired
 	private PacienteServico pacienteServico;
@@ -29,9 +33,16 @@ public class PacienteControle {
 		return new PacienteBean(paciente, new EventFactorySupport().success(this));
 	}
 	
+
 	public List<Paciente> findAll(){
 		return pacienteServico.findAll();
 	}
+	
+	 public String onFlowProcess(FlowEvent event) {
+	       
+	            return event.getNewStep();
+	        
+	  }
 	
 	public Event salvePaciente(PacienteBean pacienteBean, MessageContext messageContext){
 		MessageBuilder messageBuilder=null;
@@ -39,16 +50,7 @@ public class PacienteControle {
 			System.out.println("Salvando Paciente:1");
 			Paciente paciente = pacienteBean.getPaciente();
 			paciente.setAtivo(1);
-			Endereco endereco = new Endereco();
-			endereco.setRua(pacienteBean.getRua());
-			Telefone telefone = new Telefone();
-			telefone.setTelefone(pacienteBean.getTelefone());
-			Email email = new Email();
-			email.setEmail(pacienteBean.getEmail());
 			
-			paciente.setEndereco(endereco);
-			paciente.setTelefone(telefone);
-			paciente.setEmail(email);
 			
 			System.out.println("Salvando Paciente:"+ paciente.getNome());
 			pacienteServico.save(paciente);
@@ -63,9 +65,58 @@ public class PacienteControle {
 			  messageBuilder.arg(ex3);
 			  messageContext.addMessage(messageBuilder.build());
 			  return new EventFactorySupport().error(this);	
-		}
-			
-		
-		
+		}	
 	}
+
+
+	public List<Endereco> getEndereco() {
+		return endereco;
+	}
+
+
+	public void setEndereco(List<Endereco> endereco) {
+		this.endereco = endereco;
+	}
+
+
+	public String getRua() {
+		return rua;
+	}
+
+
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+
+
+	public String getNumero() {
+		return numero;
+	}
+
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+
+	public String getBairro() {
+		return bairro;
+	}
+
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+	
+	
 }
