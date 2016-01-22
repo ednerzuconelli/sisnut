@@ -48,23 +48,23 @@ public class Pessoa  implements Serializable{
 	@Column(name="ativo")
 	private Integer ativo;
 	  
-	@OneToMany(fetch=FetchType.EAGER, mappedBy="endereco")
+	@OneToMany(fetch=FetchType.EAGER)
 	@JoinColumn(name="endereco_id", updatable=true, insertable=true, nullable=true)
 	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)
 	private List<Endereco> endereco;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.EAGER)
 	@JoinColumn(name="telefone_id", updatable=true, insertable=true, nullable=true)
 	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)
-	private Telefone telefone;
+	private List<Telefone> telefone;
 	  
-	@ManyToOne(fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.EAGER)
 	@JoinColumn(name="email_id", updatable=true, insertable=true, nullable=true)
 	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)
-	private Email email;
+	private List<Email> email;
 	  
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="tipopessoa_id", updatable=true, insertable=true, nullable=true)
@@ -129,19 +129,19 @@ public class Pessoa  implements Serializable{
 		this.endereco = endereco;
 	}
 
-	public Telefone getTelefone() {
+	public List<Telefone> getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(Telefone telefone) {
+	public void setTelefone(List<Telefone> telefone) {
 		this.telefone = telefone;
 	}
 
-	public Email getEmail() {
+	public List<Email> getEmail() {
 		return email;
 	}
 
-	public void setEmail(Email email) {
+	public void setEmail(List<Email> email) {
 		this.email = email;
 	}
 

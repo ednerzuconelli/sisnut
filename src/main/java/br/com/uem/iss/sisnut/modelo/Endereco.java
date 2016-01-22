@@ -42,13 +42,13 @@ public class Endereco implements Serializable {
 	@Column(name="bairro", nullable=false, length=40)
 	private String bairro;
 	
-	@OneToOne(fetch=FetchType.EAGER)
+	
 	@JoinColumn(name="cidade_id", updatable=true, insertable=true, nullable=true)
 	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)
 	private Cidade cidade;
 	
-	@OneToOne(fetch=FetchType.EAGER)
+	
 	@JoinColumn(name="tipoendereco_id", updatable=true, insertable=true, nullable=true)
 	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)

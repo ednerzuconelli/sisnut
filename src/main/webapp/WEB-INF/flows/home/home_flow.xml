@@ -52,10 +52,15 @@
       	</transition>
     </view-state>
     
-    <view-state id="cadastroPaciente" view="cadastro_paciente2.xhtml" >
+    <view-state id="cadastroPaciente" view="cadastro_paciente.xhtml" >
       	<on-entry >
         	<evaluate expression="pacienteControle.newPacienteBean()" result="flowScope.pacienteBean" />
       	</on-entry>
+      	<transition on="cadEnd" to="cadastroPaciente2"/>
+    </view-state>
+    
+    <view-state id="cadastroPaciente2" view="cadastro_paciente2.xhtml" >
+      	
       	<transition on="salvar" to="listPaciente">
       	    <evaluate expression="pacienteControle.salvePaciente(flowScope.pacienteBean, messageContext)"></evaluate>
       	</transition>
