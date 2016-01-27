@@ -1,9 +1,13 @@
 package br.com.uem.iss.sisnut.controle;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.event.ActionEvent;
+import javax.faces.event.AjaxBehaviorEvent;
 
+import org.joda.time.DateTime;
 import org.primefaces.event.FlowEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
@@ -18,17 +22,12 @@ import br.com.uem.iss.sisnut.modelo.Paciente;
 import br.com.uem.iss.sisnut.modelo.Telefone;
 import br.com.uem.iss.sisnut.modelo.Usuario;
 import br.com.uem.iss.sisnut.servico.PacienteServico;
-import br.com.uem.iss.sisnut.view.EnderecoBean;
 import br.com.uem.iss.sisnut.view.PacienteBean;
 import br.com.uem.iss.sisnut.view.UsuarioBean;
 
 @Component("pacienteControle")
 public class PacienteControle {
-	private List<Endereco> endereco;
-	private List<Telefone> telefone;
-	private List<Email> ema;
-	private String rua,numero,complemento,bairro,tel,email;
-	private List<String> listaEndereco;
+
 	
 	
 	@Autowired
@@ -49,22 +48,66 @@ public class PacienteControle {
 		return pacienteServico.findAll();
 	}
 	
-	public void cadastrarEndereco(){
-		Endereco end = new Endereco();
-		end.setNumero(getNumero());
-		end.setRua(getRua());
-		end.setComplemento(getComplemento());
-		end.setBairro(getBairro());
-		endereco.add(end);
-		listaEndereco.add(end.getRua()+","+end.getNumero()+" "+end.getComplemento()+" "+end.getBairro());
-	}
-	
+
 	
  
 	
 	public Event salvePaciente(PacienteBean pacienteBean, MessageContext messageContext){
 		MessageBuilder messageBuilder=null;
 		try{
+			
+			Paciente paciente = new Paciente();
+			List<Endereco> endereco = new ArrayList<Endereco>();
+			List<Telefone> telefone = new ArrayList<Telefone>();
+			List<Email> email = new ArrayList<Email>();
+			
+			Endereco end1 = new Endereco();
+			end1.setRua(pacienteBean.getRua());
+			end1.setNumero(pacienteBean.getNumero());
+			end1.setComplemento(pacienteBean.getComplemento());
+			end1.setBairro(pacienteBean.getBairro());
+			
+			Endereco end2 = new Endereco();
+			end2.setRua(pacienteBean.getRua2());
+			end2.setNumero(pacienteBean.getNumero2());
+			end2.setComplemento(pacienteBean.getComplemento2());
+			end2.setBairro(pacienteBean.getBairro2());
+			
+			endereco.add(end1);
+			endereco.add(end2);
+			
+			Telefone tel = new Telefone();
+			tel.setTelefone(pacienteBean.getTel());
+			
+			Telefone tel2 = new Telefone();
+			tel2.setTelefone(pacienteBean.getTelcom());
+			
+			Telefone tel3 = new Telefone();
+			tel3.setTelefone(pacienteBean.getTelcel());
+			
+			telefone.add(tel);
+			telefone.add(tel2);
+			telefone.add(tel3);
+			
+			Email email1 = new Email();
+			Email email2 = new Email();
+			email1.setEmail(pacienteBean.getEmail());
+			email2.setEmail(pacienteBean.getEmail2());
+			
+			email.add(email1);
+			email.add(email2);
+			
+			paciente.setNome(pacienteBean.getNome());
+			paciente.setDataNascimento(DateTime.parse(pacienteBean.getDataNascimento()));
+			paciente.setEndereco(endereco);
+			paciente.setTelefone(telefone);
+			paciente.setEmail(email);
+			paciente.setContato("EU");
+			DateTime data = new DateTime(System.currentTimeMillis());
+			
+			paciente.setDataCadatro(data);
+			
+			pacienteServico.save(paciente);
 			
 			return new EventFactorySupport().success(this);
 			
@@ -78,104 +121,6 @@ public class PacienteControle {
 	}
 
 
-	public List<Endereco> getEndereco() {
-		return endereco;
-	}
-
-
-	public void setEndereco(List<Endereco> endereco) {
-		this.endereco = endereco;
-	}
-
-
-	public String getRua() {
-		return rua;
-	}
-
-
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
-
-
-	public String getNumero() {
-		return numero;
-	}
-
-
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
-
-	public String getComplemento() {
-		return complemento;
-	}
-
-
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
-
-
-	public String getBairro() {
-		return bairro;
-	}
-
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-
-	public List<Email> getEma() {
-		return ema;
-	}
-
-
-	public void setEma(List<Email> ema) {
-		this.ema = ema;
-	}
-
-
-	public String getEmail() {
-		return email;
-	}
-
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
-	public String getTel() {
-		return tel;
-	}
-
-
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-
-
-	public List<Telefone> getTelefone() {
-		return telefone;
-	}
-
-
-	public void setTelefone(List<Telefone> telefone) {
-		this.telefone = telefone;
-	}
-
-
-	public List<String> getListaEndereco() {
-		return listaEndereco;
-	}
-
-
-	public void setListaEndereco(List<String> listaEndereco) {
-		this.listaEndereco = listaEndereco;
-	}
 	
 	
 }

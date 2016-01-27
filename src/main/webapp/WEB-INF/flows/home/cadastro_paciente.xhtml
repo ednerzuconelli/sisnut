@@ -12,8 +12,8 @@
 			
 					<h1>Cadastro de Paciente</h1>
 					 
-						  <p:wizard >
-							<p:tab id="personal" title="Pessoal">
+				
+							
             				<p:panel header="Dados Pessoais">
                 				<p:messages />
                 				<h:panelGrid columns="2" columnClasses="label, value" >
@@ -28,75 +28,112 @@
 				             
                 				</h:panelGrid>
             				</p:panel>
-            				</p:tab>
-            				<p:commandButton value="Próximo" action="cadEnd" type="submit" />
-        				 	<p:tab id="endereco" title="Endereço">
-            				<p:panel header="Dados Endereço">
+            				
+            				
+        				 	
+            				<p:panel header="Endereço Residencial">
                 				<p:messages />
+                				
                 				
                 				<h:panelGrid columns="2" columnClasses="label, value">
                     				<h:outputText value="Rua: *" />
-                    				<p:inputText  required="true" label="Rua"  value="#{pacienteControle.rua}"/>
+                    				<p:inputText  id="irua" required="true" label="Rua"  value="#{pacienteBean.rua}"/>
  
      					            <h:outputText value="Número: *" />
-                    				<p:inputText  required="true" label="Número" value="#{pacienteControle.numero}"/>
+                    				<p:inputText  id="inumero" required="true" label="Número" value="#{pacienteBean.numero}"/>
 									 
                     				<h:outputText value="Complemento: " />
-                    				<p:inputText required="false" label="Complemento" value="#{pacienteControle.complemento}"/>
+                    				<p:inputText id="icomp" required="false" label="Complemento" value="#{pacienteBean.complemento}"/>
                     				
                     				<h:outputText value="Bairro: " />
-                    				<p:inputText required="false" label="Bairro" value="#{pacienteControle.bairro}"/>
+                    				<p:inputText id="ibairro" required="false" label="Bairro" value="#{pacienteBean.bairro}"/>
+                    				
+                    				<h:outputText value="UF: " />
+                    				<p:inputText id="iuf" required="false" label="UF" value="#{pacienteBean.uf}"/>
+                    				
+                    				<h:outputText value="Cidade: " />
+                    				<p:inputText id="icidade" required="false" label="Cidade" value="#{pacienteBean.cidade}"/>
  
- 									<p:commandButton value="Inserir" action="#{pacienteControle.cadastrarEndereco}" />
- 								
- 									
-    								<p:outputPanel id="display" style="width:450px;padding-left:5px;margin-top:10px">
-        								<p:dataList value="#{pacienteControle.listaEndereco}" var="dEndereco" emptyMessage="Sem endereço Cadastrado">#{dEndereco}</p:dataList>
-									</p:outputPanel>
- 									
+ 							 </h:panelGrid>
+ 							</p:panel>
+ 							 		
+				             <p:panel header="Endereço Comercial">
+                				
+ 								<h:panelGrid columns="2" columnClasses="label, value">
+                    				<h:outputText value="Rua: *" />
+                    				<p:inputText  id="irua2" required="false" label="Rua"  value="#{pacienteBean.rua2}"/>
+ 
+     					            <h:outputText value="Número: *" />
+                    				<p:inputText  id="inumero2" required="false" label="Número" value="#{pacienteBean.numero2}"/>
+									 
+                    				<h:outputText value="Complemento: " />
+                    				<p:inputText id="icomp2" required="false" label="Complemento" value="#{pacienteBean.complemento2}"/>
+                    				
+                    				<h:outputText value="Bairro: " />
+                    				<p:inputText id="ibairro2" required="false" label="Bairro" value="#{pacienteBean.bairro2}"/>
+ 
+ 									<h:outputText value="UF: " />
+                    				<p:inputText id="iuf2" required="false" label="UF" value="#{pacienteBean.uf2}"/>
+                    				
+                    				<h:outputText value="Cidade: " />
+                    				<p:inputText id="icidade2" required="false" label="Cidade" value="#{pacienteBean.cidade2}"/>
 				             
                 				</h:panelGrid>
+ 								
                 				
             				</p:panel>
-        					</p:tab>
         					
-        					<!-- 
+        					
+        					
             				<p:panel header="Dados Telefone">
                 				<p:messages />
+                				
+                				
                 				<h:panelGrid columns="2" columnClasses="label, value">
-                    				<h:outputText value="Telefone: *" required="true" />
-                    				<p:inputText  required="true" label="Telefone"  value="#{pacienteControle.tel}"/>
-                    				<p:commandButton value="Inserir" update="display" type="button" />
+                    				<h:outputText value="Número: *" />
+                    				<p:inputText  id="tel" required="true" label="Telefone"  value="#{pacienteBean.tel}"/>
+ 
+     					      		<h:outputText value="Número Celular: *" />
+                    				<p:inputText  id="tel2" required="true" label="Telefone"  value="#{pacienteBean.telcel}"/>
  									
-    								<p:outputPanel id="displayTel" style="width:250px;padding-left:5px;margin-top:10px">
-        								<p:dataList var="city" emptyMessage="Sem Telefone Cadastrado"></p:dataList>
-									</p:outputPanel>             
-                    				             
+				             			<h:outputText value="Número Comercial: " />
+                    				<p:inputText  id="tel3" required="false" label="Telefone"  value="#{pacienteBean.telcom}"/>
+				             
                 				</h:panelGrid>
-            				</p:panel>
+ 							
+                				
+                				
+ 				             
+                				
+ 								</p:panel>
+                				
+            				
         				
-        					<p:panel header="Dados Email">
+        					
+            				<p:panel header="Dados Email">
                 				<p:messages />
+                				
+                				
                 				<h:panelGrid columns="2" columnClasses="label, value">
-                    				<h:outputText value="Email: *" required="true" />
-                    				<p:inputText  required="true" label="Email"  value="#{pacienteControle.email}"/>
-                    				<p:commandButton value="Inserir" update="displayEma" type="button" />
+                    				<h:outputText value="Email *" />
+                    				<p:inputText  id="ema" required="true" label="Email"  value="#{pacienteBean.email}"/>
+ 
+     					      		<h:outputText value="Email Alternativo: *" />
+                    				<p:inputText  id="ema2" required="false" label="Email Alternativo"  value="#{pacienteBean.email2}"/>
+ 
  									
-    								<p:outputPanel id="displayEma" style="width:250px;padding-left:5px;margin-top:10px">
-        								<p:dataList var="city" emptyMessage="Sem Email Cadastrado"></p:dataList>
-									</p:outputPanel>             
-                    				             
+				             
+    				
                 				</h:panelGrid>
+ 								
+                				
             				</p:panel>
-        	
-							<h:panelGrid columns="2">
-								<p:commandButton value="Cadastrar" action="salvar" >
-								</p:commandButton>
-								<p:commandButton value="Cancelar" action="cancelar" >
-								</p:commandButton>
+        					<h:panelGrid columns="2">
+									<p:commandButton value="Cadastrar" action="salvar" />
+									<p:commandButton value="Cancelar" action="cancelar" />
+									
 							</h:panelGrid>
-					 		-->
-					 		</p:wizard>
+					 		
 		</h:form>
 
 	</h:body>
