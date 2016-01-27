@@ -32,7 +32,10 @@
       	<transition on="produto" to="cadastroProduto"/>
     
  		<transition on="delete" to="listProduto">
- 		    <evaluate expression="produtoControle.deleteProduto(produtoControle.findAll().size(), messageContext)"/>
+ 		    <evaluate expression="produtoControle.deleteProduto(messageContext)"/>
+ 		</transition>
+ 		<transition on="edit" to="cadastroProduto">
+ 		    <evaluate expression="produtoControle.editProduto()"  result="flowScope.produtoBean"/>
  		</transition>
     </view-state>
     

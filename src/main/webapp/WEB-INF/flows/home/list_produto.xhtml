@@ -30,11 +30,19 @@
 					<h:outputText value="#{produto.estoque}" />
 				</p:column>
 				
+				<p:column  headerText="Editar" width="110">
+		               <p:commandButton value="Editar" icon="fa fa-fw fa-remove"
+		                  action="edit" update="listProduto">
+		                   <f:setPropertyActionListener value="#{produto}" target="#{produtoControle.produtoSelecionado}" /> 
+		                </p:commandButton>                  
+		                  
+		               
+		         </p:column>
 				
 				 <p:column  headerText="Delete" width="110">
 		               <p:commandButton value="Delete" icon="fa fa-fw fa-remove"
 		                  action="delete" update="listProduto">
-		                  <!-- <f:setPropertyActionListener value="#{produto}" target="#{produtoBean.getProduto()}" /> -->
+		                   <f:setPropertyActionListener value="#{produto}" target="#{produtoControle.produtoSelecionado}" /> 
 		                </p:commandButton>                  
 		                  
 		               

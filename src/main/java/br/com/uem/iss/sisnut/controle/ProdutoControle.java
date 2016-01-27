@@ -21,9 +21,17 @@ public class ProdutoControle {
 	@Autowired
 	private ProdutoServico produtoservico;
 	
-	private DataModel produtos;
+	private Produto produtoSelecionado;
 	
-	 public ProdutoBean newProdutoBean(){
+	 public Produto getProdutoSelecionado() {
+		return produtoSelecionado;
+	}
+
+	public void setProdutoSelecionado(Produto produtoSelecionado) {
+		this.produtoSelecionado = produtoSelecionado;
+	}
+
+	public ProdutoBean newProdutoBean(){
 	    	Produto produto = new Produto();
 	    	return new ProdutoBean(produto, new EventFactorySupport().success(this));
 	    }
@@ -59,8 +67,7 @@ public class ProdutoControle {
 	public Event deleteProduto(MessageContext messageContext){
 		MessageBuilder messageBuilder = null;
 		try{
-			
-			Produto produto = produtoservico.getById(produtoservico.findAll().size());
+			Produto produto = produtoSelecionado;
 			produto.setAtivo(0);
 			produtoservico.save(produto);
 		} catch (Throwable ex4){
@@ -74,5 +81,12 @@ public class ProdutoControle {
 		return new EventFactorySupport().success(this);
 		
 		
+	}
+	
+	public ProdutoBean editProduto(){
+		Produto produto = null;
+		ProdutoBean produtoBean = new ProdutoBean(produto, new EventFactorySupport().success(this));
+		produtoBean.setProduto(produtoSelecionado);
+		return produtoBean;
 	}
 }
