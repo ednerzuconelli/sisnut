@@ -2,13 +2,8 @@ package br.com.uem.iss.sisnut.view;
 
 
 import java.io.Serializable;
-import java.util.List;
-
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.faces.model.DataModel;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +20,6 @@ public class ProdutoBean implements Serializable {
 	private boolean value;
 	
 	public Produto selectedProduto;
-	
-	private DataModel produtos;
 	
 	@Autowired
 	private ProdutoServico produtoservico;

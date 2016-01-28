@@ -1,0 +1,62 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Sistema para Nutricionistas</title>
+</h:head>
+<h:body>
+
+
+		<h:form id="form1" >
+			<h:messages>
+				<f:validateBean>
+					<h1>Cadastro de Pedidos</h1> 
+					<div class="ui-grid ui-grid-responsive">
+						<div class="ui-grid-row">
+						<h:panelGrid columns="2">	
+						 	<div class="ui-grid-col-4">
+								<h:outputLabel for="produto">#{msg['produto']}</h:outputLabel>
+							</div>
+						<!--	<div class="ui-grid-col-8">
+								<p:inputText id="produto" value="#{pedidoBean.pedido.id}"
+									required="true" size="60" label="#{msg['produto']}" />
+							</div>
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="estoque">#{msg['estoque']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="estoque" value="#{produtoBean.produto.estoque}"
+									required="true" size="20" label="#{msg['estoque']}" />
+							</div>
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="valorvenda">#{msg['valor_venda_produto']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="valorvenda" value="#{produtoBean.produto.valorvenda}"
+									required="true" size="20" label="#{msg['valor_venda_produto']}" />
+							</div>
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="valorcusto">#{msg['valor_custo_produto']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="valorcusto" value="#{produtoBean.produto.valorcusto}"
+									required="true" size="20" label="#{msg['valor_custo_produto']}" />
+							</div>   -->
+						</h:panelGrid>		
+						</div>
+					</div>
+
+
+					<h:panelGrid columns="1">
+						<p:commandButton value="Cadastrar" action="salvar" >
+						</p:commandButton>
+					</h:panelGrid>
+					
+				</f:validateBean>
+			</h:messages>
+		</h:form>
+
+	</h:body>
+</h:html>
