@@ -1,5 +1,7 @@
 package br.com.uem.iss.sisnut.modelo;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,10 +25,10 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 @SuppressWarnings("serial")
 @Entity
 @Table(name="pedido" )
-public class Pedido {
+public class Pedido implements Serializable {
 
 	@Id
-	@Column(name="pedido_id")
+	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
@@ -60,4 +62,78 @@ public class Pedido {
 	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)
 	private Fornecedor fornecedor;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public DateTime getDataPedido() {
+		return dataPedido;
+	}
+
+	public void setDataPedido(DateTime dataPedido) {
+		this.dataPedido = dataPedido;
+	}
+
+	public Double getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(Double quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public Double getValorUnitario() {
+		return valorUnitario;
+	}
+
+	public void setValorUnitario(Double valorUnitario) {
+		this.valorUnitario = valorUnitario;
+	}
+
+	public Integer getEnviou() {
+		return enviou;
+	}
+
+	public void setEnviou(Integer enviou) {
+		this.enviou = enviou;
+	}
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
+
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+
+	@Override
+	public String toString() {
+		return "Pedido [id=" + id + ", dataPedido=" + dataPedido + ", quantidade=" + quantidade + ", valorUnitario="
+				+ valorUnitario + ", enviou=" + enviou + ", produto=" + produto + ", paciente=" + paciente
+				+ ", fornecedor=" + fornecedor + "]";
+	}
+	
+	
+	
 }

@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import br.com.uem.iss.sisnut.modelo.Pedido;
 
-public interface PedidoRepositorio extends CrudRepository<Pedido, Serializable>, JpaSpecificationExecutor<Pedido> {
+public interface PedidoRepositorio extends CrudRepository<Pedido, Integer>, JpaSpecificationExecutor<Pedido> {
 
 }
