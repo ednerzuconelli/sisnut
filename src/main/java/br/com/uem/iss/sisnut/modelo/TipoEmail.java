@@ -14,7 +14,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name="email" )
+@Table(name="tipoemail" )
 
 public class TipoEmail implements Serializable {
 
@@ -22,7 +22,7 @@ public class TipoEmail implements Serializable {
 	@Column(name="tipoemail_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@NotNull @NotEmpty
+	
 	@Column(name="tipo", nullable=false, length=128)
 	private String tipo;
 	

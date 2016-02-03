@@ -12,6 +12,7 @@
 <h:body>
 	<h:form id="form">
 		<p:messages>
+			
 			<p:dataTable id="listPaciente" var="paciente"
 				value="#{pacienteControle.findAllativo()}"
 				emptyMessage="Nenhum paciente cadastrado">
@@ -39,27 +40,16 @@
 				</p:column>
 				
 				
-			
-		         
-		         
-		         <p:column  headerText="Editar" width="110">
-		               <p:commandButton value="Editar" icon="fa fa-fw fa-remove"
+		         <p:column  headerText="Avaliacao" width="110">
+		               <p:commandButton value="Gerar Avaliação" icon="fa fa-fw fa-remove"
 		                  action="edit" update="listPaciente">
-		                   <f:setPropertyActionListener value="#{paciente}" target="#{pacienteControle.pacienteSelecionado}" /> 
+		                   <f:setPropertyActionListener value="#{paciente}" target="" /> 
 		                </p:commandButton>                  
 		                  
 		               
 		         </p:column>
 				
-				 <p:column  headerText="Delete" width="110">
-		               <p:commandButton value="Delete" icon="fa fa-fw fa-remove"
-		                  action="delete" update="listPaciente">                  
-		                   <f:setPropertyActionListener value="#{paciente}" target="#{pacienteControle.pacienteSelecionado}" /> 
-		                </p:commandButton>                  
-		                 
-		                  
-		               
-		         </p:column>
+				 
 		         
 
 				<f:facet name="footer">
@@ -72,7 +62,7 @@
 
 			</p:dataTable>
 
-			<p:commandButton value="Cadastrar Paciente" action="cadastroPaciente"></p:commandButton>
+			<p:commandButton value="Voltar" action="cadastroPaciente"></p:commandButton>
 			
 		</p:messages>
 	</h:form>

@@ -29,7 +29,14 @@ public class PacienteServicoImp implements PacienteServico {
 	@Override
 	public List<Paciente> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return (List<Paciente>)pacienteRepositorio.findAll();
+	}
+
+	@Override
+	public List<Paciente> findAllativo() {
+		// TODO Auto-generated method stub
+		
+		return (List<Paciente>)pacienteRepositorio.findAllativo();
 	}
 
 }

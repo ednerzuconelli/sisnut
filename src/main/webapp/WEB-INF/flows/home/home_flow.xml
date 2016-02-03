@@ -15,8 +15,13 @@
  		<transition on="listPaciente" to="listPaciente"> </transition>
  		<transition on="listUsuario" to="listUsuario"> </transition>
  		<transition on="pedido" to="geraPedido"> </transition>
+ 		<transition on="avaliacao" to="avaliacao"></transition>	
  	</view-state>
     
+ 	<view-state id="avaliacao" view="list_paciente_avaliacao.xhtml" >
+      	
+    </view-state>	
+ 		
     <view-state id="geraPedido" view="gera_pedido.xhtml" >
       	<on-entry >
         	<evaluate expression="pedidoControle.newPedidoBean()" result="flowScope.pedidoBean" />
@@ -52,7 +57,11 @@
     <view-state id="listPaciente" view="list_paciente.xhtml" >
       	
       	<transition on="cadastroPaciente" to="cadastroPaciente"/>
-    
+      	<transition on="delete" to="listPaciente">
+ 		    <evaluate expression="pacienteControle.deletePaciente(messageContext)"/>
+ 		</transition>
+      	<transition on="edit" to="alteraPaciente">
+    	</transition>
  	
     </view-state>
     
@@ -81,6 +90,15 @@
       	</on-entry>
       	<transition on="salvar" to="listProduto">
       		<evaluate expression="produtoControle.salveProduto(flowScope.produtoBean,  messageContext)"/>
+ 		</transition>  
+    </view-state>
+    
+    <view-state id="alteraPaciente" view="cadastro_paciente.xhtml"  >
+      	<on-entry >
+        	<evaluate expression="pacienteControle.editPaciente()" result="flowScope.pacienteBean" />
+      	</on-entry>
+      	<transition on="salvar" to="listPaciente">
+      		<evaluate expression="pacienteControle.salvePaciente(flowScope.pacienteBean,  messageContext)"/>
  		</transition>  
     </view-state>
     

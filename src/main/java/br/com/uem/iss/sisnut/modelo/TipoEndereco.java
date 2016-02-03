@@ -21,7 +21,7 @@ public class TipoEndereco implements Serializable {
 	@Column(name="tipoendereco_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@NotNull @NotEmpty
+
 	@Column(name="tipo", nullable=false, length=128)
 	private String tipo;
 	

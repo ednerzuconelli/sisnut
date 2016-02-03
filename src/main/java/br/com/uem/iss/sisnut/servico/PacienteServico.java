@@ -17,4 +17,6 @@ public interface PacienteServico {
 
 	public List<Paciente> findAll();
 
+	public List<Paciente> findAllativo();
+
 }

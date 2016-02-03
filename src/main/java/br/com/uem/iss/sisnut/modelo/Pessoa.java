@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -47,28 +48,21 @@ public class Pessoa  implements Serializable{
 	private String contato;
 	@Column(name="ativo")
 	private Integer ativo;
-	  
-	@OneToMany(fetch=FetchType.EAGER)
-	@JoinColumn(name="endereco_id", updatable=true, insertable=true, nullable=true)
-	@Fetch(FetchMode.SELECT)
+	
+	@OneToMany(mappedBy="pessoa",fetch=FetchType.EAGER,targetEntity=Endereco.class)
 	@Cascade(CascadeType.ALL)
 	private List<Endereco> endereco;
 	
-	@OneToMany(fetch=FetchType.EAGER)
-	@JoinColumn(name="telefone_id", updatable=true, insertable=true, nullable=true)
-	@Fetch(FetchMode.SELECT)
+	@OneToMany(mappedBy="pessoa",fetch=FetchType.EAGER,targetEntity=Telefone.class)
 	@Cascade(CascadeType.ALL)
 	private List<Telefone> telefone;
 	  
-	@OneToMany(fetch=FetchType.EAGER)
-	@JoinColumn(name="email_id", updatable=true, insertable=true, nullable=true)
-	@Fetch(FetchMode.SELECT)
+	@OneToMany(mappedBy="pessoa",fetch=FetchType.EAGER,targetEntity=Email.class)
 	@Cascade(CascadeType.ALL)
 	private List<Email> email;
 	  
-	@ManyToOne(fetch=FetchType.EAGER)
+	
 	@JoinColumn(name="tipopessoa_id", updatable=true, insertable=true, nullable=true)
-	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)
 	
 	private TipoPessoa tipopessoa;

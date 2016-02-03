@@ -29,6 +29,7 @@ public class Endereco implements Serializable {
 	@Column(name="endereco_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	@NotNull @NotEmpty
 	@Column(name="rua", nullable=false, length=128)
 	private String rua;
@@ -42,15 +43,16 @@ public class Endereco implements Serializable {
 	@Column(name="bairro", nullable=false, length=40)
 	private String bairro;
 	
+	@ManyToOne
+	@JoinColumn(name="id_pessoa")
+	private Pessoa pessoa;
 	
 	@JoinColumn(name="cidade_id", updatable=true, insertable=true, nullable=true)
-	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)
 	private Cidade cidade;
 	
 	
 	@JoinColumn(name="tipoendereco_id", updatable=true, insertable=true, nullable=true)
-	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)
 	private TipoEndereco tipoendereco;
 
@@ -108,6 +110,14 @@ public class Endereco implements Serializable {
 
 	public void setTipoendereco(TipoEndereco tipoendereco) {
 		this.tipoendereco = tipoendereco;
+	}
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 	
 	

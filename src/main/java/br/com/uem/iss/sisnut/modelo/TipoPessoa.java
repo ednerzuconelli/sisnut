@@ -21,7 +21,7 @@ public class TipoPessoa implements Serializable {
 	@Column(name="tipopessoa_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@NotNull @NotEmpty
+	
 	@Column(name="tipo", nullable=false, length=15)
 	private String tipo;
 	public Integer getId() {
