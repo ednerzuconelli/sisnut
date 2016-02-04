@@ -26,7 +26,9 @@ public class PedidoControle {
 	public Event salvePedido(PedidoBean pedidobean, MessageContext messageContext){
 		MessageBuilder messageBuilder=null;
 		try{
+			System.out.println("Teste de inserçao pedido " );
 			Pedido pedido = pedidobean.getPedido();
+			
 			pedidoservico.save(pedido);
 			
 		}catch (Throwable ex3){
