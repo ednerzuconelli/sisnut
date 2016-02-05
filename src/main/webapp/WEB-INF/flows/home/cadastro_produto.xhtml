@@ -1,12 +1,11 @@
-<h:html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:h="http://java.sun.com/jsf/html" 
-      xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:p="http://primefaces.org/ui" 
-      xmlns:f="http://java.sun.com/jsf/core">
-<h:head>
-	<title>Sistema para Nutricionistas</title>
-</h:head>
-<h:body>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+    template="/WEB-INF/templates/standardpages.xhtml">
+
+<ui:define name="content">
 
 
 		<h:form id="form1" >
@@ -58,5 +57,5 @@
 			</h:messages>
 		</h:form>
 
-	</h:body>
-</h:html>
+	</ui:define>
+</ui:composition>

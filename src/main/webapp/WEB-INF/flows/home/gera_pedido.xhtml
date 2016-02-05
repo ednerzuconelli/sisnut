@@ -19,33 +19,14 @@
 						 	<div class="ui-grid-col-4">
 								<h:outputLabel for="produto">#{msg['produto']}</h:outputLabel>
 							</div>
-							<!-- <div class="ui-grid-col-8">
+							 <div class="ui-grid-col-8">
 
 								<p:autoComplete id="produto"
 									value="#{pedidoBean.pedido.produto}"
-									completeMethod="#{autoCompleteView.completeTheme}" var="theme"
-									itemLabel="#{theme.displayName}" itemValue="#{theme}"
-									converter="themeConverter" forceSelection="true">
-									<f:facet name="itemtip">
-										<h:panelGrid columns="2" cellpadding="5">
-											<f:facet name="header">
-												<h:outputText styleClass="ui-theme ui-theme-#{theme.name}"
-													style="margin-left:50px" />
-											</f:facet>
-
-											<h:outputText value="Display:" />
-											<h:outputText value="#{theme.displayName}" />
-
-											<h:outputText value="Key" />
-											<h:outputText value="#{theme.name}" />
-										</h:panelGrid>
-									</f:facet>
+									completeMethod="#{pedidoControle.completeTheme}">
 								</p:autoComplete>
-
-
-								<p:inputText id="Produto" value="#{pedidoBean.pedido.produto}"
-									required="true" size="60" label="#{msg['produto']}" />
-							</div> -->
+								
+							</div> 
 							<div class="ui-grid-col-4">
 								<h:outputLabel for="data">#{msg['data_pedido']}</h:outputLabel>
 							</div>
