@@ -12,37 +12,58 @@
 		<h:form id="form1" >
 			<h:messages>
 				<f:validateBean>
-					<h1>Cadastro de produtos</h1> 
+					<h1>Cadastro de Avaliação</h1> 
 					<div class="ui-grid ui-grid-responsive">
 						<div class="ui-grid-row">
 						<h:panelGrid columns="2">	
 							<div class="ui-grid-col-4">
-								<h:outputLabel for="produto">#{msg['produto']}</h:outputLabel>
+								<h:outputLabel for="peso">#{msg['peso']}</h:outputLabel>
 							</div>
 							<div class="ui-grid-col-8">
-								<p:inputText id="produto" value="#{produtoBean.produto.produto}"
-									required="true" size="60" label="#{msg['produto']}" />
+								<p:inputText id="peso" value="#{avaliacaoBean.avaliacao.peso}"
+									required="true" size="60" label="#{msg['peso']}" />
 							</div>
 							<div class="ui-grid-col-4">
-								<h:outputLabel for="estoque">#{msg['estoque']}</h:outputLabel>
+								<h:outputLabel for="altura">#{msg['altura']}</h:outputLabel>
 							</div>
 							<div class="ui-grid-col-8">
-								<p:inputText id="estoque" value="#{produtoBean.produto.estoque}"
-									required="true" size="20" label="#{msg['estoque']}" />
+								<p:inputText id="altura" value="#{avaliacaoBean.avaliacao.altura}"
+									required="true" size="20" label="#{msg['altura']}" />
 							</div>
 							<div class="ui-grid-col-4">
-								<h:outputLabel for="valorvenda">#{msg['valor_venda_produto']}</h:outputLabel>
+								<h:outputLabel for="gordura">#{msg['gordura']}</h:outputLabel>
 							</div>
 							<div class="ui-grid-col-8">
-								<p:inputText id="valorvenda" value="#{produtoBean.produto.valorvenda}"
-									required="true" size="20" label="#{msg['valor_venda_produto']}" />
+								<p:inputText id="gordura" value="#{avaliacaoBean.avaliacao.gordura}"
+									required="true" size="20" label="#{msg['gordura']}" />
 							</div>
 							<div class="ui-grid-col-4">
-								<h:outputLabel for="valorcusto">#{msg['valor_custo_produto']}</h:outputLabel>
+								<h:outputLabel for="massaossea">#{msg['massaossea']}</h:outputLabel>
 							</div>
 							<div class="ui-grid-col-8">
-								<p:inputText id="valorcusto" value="#{produtoBean.produto.valorcusto}"
-									required="true" size="20" label="#{msg['valor_custo_produto']}" />
+								<p:inputText id="massaossea" value="#{avaliacaoBean.avaliacao.massaossea}"
+									required="true" size="20" label="#{msg['massaossea']}" />
+							</div>
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="massaviceral">#{msg['massaviceral']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="massaviceral" value="#{avaliacaoBean.avaliacao.massaviceral}"
+									required="true" size="20" label="#{msg['massaviceral']}" />
+							</div>
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="agua">#{msg['agua']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="agua" value="#{avaliacaoBean.avaliacao.agua}"
+									required="true" size="20" label="#{msg['agua']}" />
+							</div>
+							<div class="ui-grid-col-4">
+								<h:outputLabel for="idademetabolica">#{msg['idademetabolica']}</h:outputLabel>
+							</div>
+							<div class="ui-grid-col-8">
+								<p:inputText id="idademetabolica" value="#{avaliacaoBean.avaliacao.idademetabolica}"
+									required="true" size="20" label="#{msg['idademetabolica']}" />
 							</div>
 						</h:panelGrid>		
 						</div>

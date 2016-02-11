@@ -19,8 +19,14 @@
  	</view-state>
     
  	<view-state id="avaliacao" view="list_paciente_avaliacao.xhtml" >
-      	
+      	<transition on="cadastraravaliacao" to="cadastraravaliacao"></transition>
     </view-state>	
+    
+ 	<view-state id="cadastraravaliacao" view="cadastro_avaliacao.xhtml" >
+    	<on-entry >
+        	<evaluate expression="avaliacaoControle.newAvaliacaoBean()" result="flowScope.avaliacaoBean" />
+      	</on-entry>  	
+    </view-state>
  		
     <view-state id="geraPedido" view="gera_pedido.xhtml" >
       	<on-entry >
