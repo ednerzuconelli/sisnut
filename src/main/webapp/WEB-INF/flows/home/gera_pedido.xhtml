@@ -19,16 +19,20 @@
 						 	<div class="ui-grid-col-4">
 								<h:outputLabel for="produto">#{msg['produto']}</h:outputLabel>
 							</div>
-							<div class="ui-grid-col-8">
-								<p:inputText id="Produto" value="#{pedidoBean.pedido.produto}"
-									required="true" size="60" label="#{msg['produto']}" />
-							</div>
+							 <div class="ui-grid-col-8">
+
+								<p:autoComplete id="produto"
+									value="#{pedidoBean.pedido.produto}"
+									completeMethod="#{pedidoControle.completeTheme}">
+								</p:autoComplete>
+								
+							</div> 
 							<div class="ui-grid-col-4">
 								<h:outputLabel for="data">#{msg['data_pedido']}</h:outputLabel>
 							</div>
 							<div class="ui-grid-col-8">
-								<p:inputText id="data" value="#{pedidoBean.pedido.dataPedido}"
-									required="true" size="20" label="#{msg['data_pedido']}" />
+								<p:calendar id="data" value="#{pedidoBean.pedido.dataPedido}"
+									required="true" effect="fold" label="#{msg['data_pedido']}" />
 							</div>
 							<div class="ui-grid-col-4">
 								<h:outputLabel for="quantidade">#{msg['quantidade_pedido']}</h:outputLabel>
