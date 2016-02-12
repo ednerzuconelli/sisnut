@@ -10,8 +10,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.webflow.action.EventFactorySupport;
 import org.springframework.webflow.execution.Event;
 
+import br.com.uem.iss.sisnut.modelo.Paciente;
 import br.com.uem.iss.sisnut.modelo.Pedido;
 import br.com.uem.iss.sisnut.modelo.Produto;
+import br.com.uem.iss.sisnut.servico.PacienteServico;
 import br.com.uem.iss.sisnut.servico.PedidoServico;
 import br.com.uem.iss.sisnut.servico.ProdutoServico;
 import br.com.uem.iss.sisnut.view.PedidoBean;
@@ -25,15 +27,18 @@ public class PedidoControle {
 	@Autowired
 	private ProdutoServico produtoservico;
 	
+	@Autowired
+	private PacienteServico pacienteservico;
+	
 	public PedidoBean newPedidoBean(){
     	Pedido pedido = new Pedido();
     	return new PedidoBean(pedido, new EventFactorySupport().success(this));
     }
 	
-	public List<Produto> completeTheme(String query) {
+	public List<Produto> completeProduto(String query) {
         List<Produto> produtos = produtoservico.findAll();
         List<Produto> filteredProdutos = new ArrayList<Produto>();
-         
+        
         for (int i = 0; i < produtos.size(); i++) {
             Produto skin = produtos.get(i);
             if(skin.getProduto().toLowerCase().startsWith(query)) {
@@ -44,6 +49,19 @@ public class PedidoControle {
         return filteredProdutos;
     }
 	
+	public List<Paciente> completePaciente(String query) {
+        List<Paciente> pacientes = pacienteservico.findAll();
+        List<Paciente> filteredPacientes = new ArrayList<Paciente>();
+        
+        for (int i = 0; i < pacientes.size(); i++) {
+            Paciente skin = pacientes.get(i);
+            if(skin.getNome().toLowerCase().startsWith(query)) {
+                filteredPacientes.add(skin);
+            }
+        }
+         
+        return filteredPacientes;
+    }
 	
 	public Event salvePedido(PedidoBean pedidobean, MessageContext messageContext){
 		MessageBuilder messageBuilder=null;
