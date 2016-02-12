@@ -14,9 +14,19 @@ public class PacienteBean implements Serializable {
 	
 	private String nome,dataNascimento,rua,numero,complemento,bairro,uf,cidade,rua2,numero2,complemento2,bairro2,uf2,cidade2,tel,telcom,telcel,email,email2;
 	
+	private Paciente paciente = null;
 	
 	
-	
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
+
+
 	final static Logger logger = LoggerFactory.getLogger(PacienteBean.class);
 
   

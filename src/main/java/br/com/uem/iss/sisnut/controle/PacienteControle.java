@@ -58,18 +58,19 @@ public class PacienteControle {
 	
 	public PacienteBean editPaciente(){
 		
-		System.out.println("Teste: "+pacienteSelecionado.getNome());
 		PacienteBean pacienteBean = new PacienteBean(new EventFactorySupport().success(this));
+		pacienteBean.setPaciente(pacienteSelecionado);
+		pacienteBean.setNome(pacienteSelecionado.getNome());
+		pacienteBean.setDataNascimento(pacienteSelecionado.getDataNascimento().toString());
 		pacienteBean.setBairro(pacienteSelecionado.getEndereco().get(0).getBairro());
 		pacienteBean.setBairro2(pacienteSelecionado.getEndereco().get(1).getBairro());
-		pacienteBean.setCidade(pacienteSelecionado.getEndereco().get(0).getCidade().getCidade());
-		pacienteBean.setCidade2(pacienteSelecionado.getEndereco().get(1).getCidade().getCidade());
+		//pacienteBean.setCidade(pacienteSelecionado.getEndereco().get(0).getCidade().getCidade());
+		//pacienteBean.setCidade2(pacienteSelecionado.getEndereco().get(1).getCidade().getCidade());
 		pacienteBean.setComplemento(pacienteSelecionado.getEndereco().get(0).getComplemento());
 		pacienteBean.setComplemento2(pacienteSelecionado.getEndereco().get(1).getComplemento());
-		pacienteBean.setDataNascimento(pacienteSelecionado.getDataNascimento().toString());
 		pacienteBean.setEmail(pacienteSelecionado.getEmail().get(0).getEmail());
 		pacienteBean.setEmail2(pacienteSelecionado.getEmail().get(1).getEmail());
-		pacienteBean.setNome(pacienteSelecionado.getNome());
+		
 		pacienteBean.setNumero(pacienteSelecionado.getEndereco().get(0).getNumero());
 		pacienteBean.setNumero2(pacienteSelecionado.getEndereco().get(1).getNumero());
 		pacienteBean.setRua(pacienteSelecionado.getEndereco().get(0).getRua());
@@ -77,8 +78,8 @@ public class PacienteControle {
 		pacienteBean.setTel(pacienteSelecionado.getTelefone().get(0).getTelefone());
 		pacienteBean.setTelcom(pacienteSelecionado.getTelefone().get(1).getTelefone());
 		pacienteBean.setTelcel(pacienteSelecionado.getTelefone().get(2).getTelefone());
-		pacienteBean.setUf(pacienteSelecionado.getEndereco().get(0).getCidade().getEstado());
-		pacienteBean.setUf2(pacienteSelecionado.getEndereco().get(1).getCidade().getEstado());
+		//pacienteBean.setUf(pacienteSelecionado.getEndereco().get(0).getCidade().getEstado());
+		//pacienteBean.setUf2(pacienteSelecionado.getEndereco().get(1).getCidade().getEstado());
 	
 		return pacienteBean;
 	}

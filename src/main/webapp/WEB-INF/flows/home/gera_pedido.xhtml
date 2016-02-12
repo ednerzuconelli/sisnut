@@ -1,43 +1,75 @@
-<h:html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:h="http://java.sun.com/jsf/html" 
-      xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:p="http://primefaces.org/ui" 
-      xmlns:f="http://java.sun.com/jsf/core">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<title>Sistema para Nutricionistas</title>
 </h:head>
 <h:body>
 
 
-		<h:form id="form1" >
-			<h:messages>
-				<f:validateBean>
-					<h1>Cadastro de Pedidos</h1> 
-					<div class="ui-grid ui-grid-responsive">
-						<div class="ui-grid-row">
-						<h:panelGrid columns="2">	
-						 	<div class="ui-grid-col-4">
+	<h:form id="form1">
+		<h:messages>
+			<f:validateBean>
+				<h1>Cadastro de Pedidos</h1>
+				<div class="ui-grid ui-grid-responsive">
+					<div class="ui-grid-row">
+						<h:panelGrid columns="2">
+							<div class="ui-grid-col-4">
 								<h:outputLabel for="Paciente">#{msg['paciente']}</h:outputLabel>
 							</div>
-							 <div class="ui-grid-col-8">
+							<div class="ui-grid-col-8">
 
 								<p:autoComplete id="paciente"
-									value="#{pedidoBean.pedido.paciente.nome}"
-									completeMethod="#{pedidoControle.completePaciente}">
+									value="#{pedidoBean.pedido.paciente}"
+									completeMethod="#{pedidoControle.completePaciente}" var="paciente"
+									itemLabel="#{paciente.nome}" itemValue="#{paciente}"
+									converter="pacienteConverter" forceSelection="true" size="60">
+									<!-- <f:facet name="itemtip">
+										<h:panelGrid columns="2" cellpadding="5">
+											<f:facet name="header">
+												<h:outputText styleClass="ui-theme ui-theme-#{theme.name}"
+													style="margin-left:50px" />
+											</f:facet>
+
+											<h:outputText value="Display:" />
+											<h:outputText value="#{theme.displayName}" />
+
+											<h:outputText value="Key" />
+											<h:outputText value="#{theme.name}" />
+										</h:panelGrid>
+									</f:facet>  -->
 								</p:autoComplete>
-								
-							</div> 
-						 	<div class="ui-grid-col-4">
+
+							</div>
+							<div class="ui-grid-col-4">
 								<h:outputLabel for="produto">#{msg['produto']}</h:outputLabel>
 							</div>
-							 <div class="ui-grid-col-8">
+							<div class="ui-grid-col-8">
 
 								<p:autoComplete id="produto"
 									value="#{pedidoBean.pedido.produto}"
-									completeMethod="#{pedidoControle.completeProduto}">
+									completeMethod="#{pedidoControle.completeProduto}" var="produto"
+									itemLabel="#{produto.produto}" itemValue="#{produto}"
+									converter="produtoConverter" forceSelection="true" size="60">
+									<!-- <f:facet name="itemtip">
+										<h:panelGrid columns="2" cellpadding="5">
+											<f:facet name="header">
+												<h:outputText styleClass="ui-theme ui-theme-#{theme.name}"
+													style="margin-left:50px" />
+											</f:facet>
+
+											<h:outputText value="Display:" />
+											<h:outputText value="#{theme.displayName}" />
+
+											<h:outputText value="Key" />
+											<h:outputText value="#{theme.name}" />
+										</h:panelGrid>
+									</f:facet>  -->
 								</p:autoComplete>
-								
-							</div> 
+
+							</div>
 							<div class="ui-grid-col-4">
 								<h:outputLabel for="data">#{msg['data_pedido']}</h:outputLabel>
 							</div>
@@ -49,29 +81,31 @@
 								<h:outputLabel for="quantidade">#{msg['quantidade_pedido']}</h:outputLabel>
 							</div>
 							<div class="ui-grid-col-8">
-								<p:inputText id="quantidade" value="#{pedidoBean.pedido.quantidade}"
-									required="true" size="20" label="#{msg['quantidade_pedido']}" />
+								<p:inputText id="quantidade"
+									value="#{pedidoBean.pedido.quantidade}" required="true"
+									size="20" label="#{msg['quantidade_pedido']}" />
 							</div>
 							<div class="ui-grid-col-4">
 								<h:outputLabel for="valorunitario">#{msg['valor_unitario_pedido']}</h:outputLabel>
 							</div>
 							<div class="ui-grid-col-8">
-								<p:inputText id="valorunitario" value="#{pedidoBean.pedido.valorUnitario}"
-									required="true" size="20" label="#{msg['valor_unitario_pedido']}" />
-							</div>   
-						</h:panelGrid>		
-						</div>
+								<p:inputText id="valorunitario"
+									value="#{pedidoBean.pedido.valorUnitario}" required="true"
+									size="20" label="#{msg['valor_unitario_pedido']}" />
+							</div>
+						</h:panelGrid>
 					</div>
+				</div>
 
 
-					<h:panelGrid columns="1">
-						<p:commandButton value="Cadastrar" action="salvar" >
-						</p:commandButton>
-					</h:panelGrid>
-					
-				</f:validateBean>
-			</h:messages>
-		</h:form>
+				<h:panelGrid columns="1">
+					<p:commandButton value="Cadastrar" action="salvar">
+					</p:commandButton>
+				</h:panelGrid>
 
-	</h:body>
+			</f:validateBean>
+		</h:messages>
+	</h:form>
+
+</h:body>
 </h:html>

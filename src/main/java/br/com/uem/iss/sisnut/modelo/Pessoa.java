@@ -49,22 +49,24 @@ public class Pessoa  implements Serializable{
 	@Column(name="ativo")
 	private Integer ativo;
 	
-	@OneToMany(mappedBy="pessoa",fetch=FetchType.EAGER,targetEntity=Endereco.class)
+	@OneToMany(fetch=FetchType.EAGER)
+	@JoinColumn(name="pessoa_cod", updatable=true, insertable=true, nullable=true)
 	@Cascade(CascadeType.ALL)
 	private List<Endereco> endereco;
 	
-	@OneToMany(mappedBy="pessoa",fetch=FetchType.EAGER,targetEntity=Telefone.class)
+	@OneToMany(fetch=FetchType.EAGER)
+	@JoinColumn(name="pessoa_cod", updatable=true, insertable=true, nullable=true)
 	@Cascade(CascadeType.ALL)
 	private List<Telefone> telefone;
 	  
-	@OneToMany(mappedBy="pessoa",fetch=FetchType.EAGER,targetEntity=Email.class)
+	@OneToMany(fetch=FetchType.EAGER)
+	@JoinColumn(name="pessoa_cod", updatable=true, insertable=true, nullable=true)
 	@Cascade(CascadeType.ALL)
 	private List<Email> email;
 	  
 	
 	@JoinColumn(name="tipopessoa_id", updatable=true, insertable=true, nullable=true)
 	@Cascade(CascadeType.ALL)
-	
 	private TipoPessoa tipopessoa;
 
 	public Integer getCod() {
