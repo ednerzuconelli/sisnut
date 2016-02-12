@@ -2,17 +2,20 @@ package br.com.uem.iss.sisnut.view;
 
 import java.io.Serializable;
 
-import org.springframework.webflow.action.EventFactorySupport;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.webflow.execution.Event;
 
 import br.com.uem.iss.sisnut.modelo.Avaliacao;
 
 public class AvaliacaoBean implements Serializable {
 
-	private Avaliacao avaliacao;
+	final static Logger logger = LoggerFactory.getLogger(AvaliacaoBean.class);
 	
-	public AvaliacaoBean(Avaliacao avaliacao, Event success) {
-		// TODO Auto-generated constructor stub
+	private Avaliacao avaliacao = null;
+	
+	public AvaliacaoBean(Avaliacao avaliacao, Event event) {
+		this.avaliacao = avaliacao;
 	}
 
 	public Avaliacao getAvaliacao() {

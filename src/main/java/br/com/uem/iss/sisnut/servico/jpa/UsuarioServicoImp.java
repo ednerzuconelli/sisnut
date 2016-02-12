@@ -22,13 +22,13 @@ public class UsuarioServicoImp implements UsuarioServico{
 	
 	@Override
 	public void save(Usuario usuario) {
-		// TODO Auto-generated method stub
+		
 		usuarioRepositorio.save(usuario);
 	}
 
 	@Override
 	public List<Usuario> findAll() {
-		// TODO Auto-generated method stub
+		
 		return (List<Usuario>) usuarioRepositorio.findAll();
 	}
 

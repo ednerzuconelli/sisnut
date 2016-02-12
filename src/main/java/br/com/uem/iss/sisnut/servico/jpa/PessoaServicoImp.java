@@ -24,7 +24,7 @@ public class PessoaServicoImp implements PessoaServico {
 	@Transactional(readOnly=true)
 	@Override
 	public Pessoa getByCod(Integer cod) {
-		// TODO Auto-generated method stub
+		
 		return pessoarepositorio.findOne(cod);
 	}
 	
@@ -39,14 +39,14 @@ public class PessoaServicoImp implements PessoaServico {
 	@Transactional
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
+		
 		pessoarepositorio.delete(id);
 	}
 
 	@Transactional
 	@Override
 	public List<Pessoa> findAll() {
-		// TODO Auto-generated method stub
+		
 		return (List<Pessoa>) pessoarepositorio.findAll();
 	}
 

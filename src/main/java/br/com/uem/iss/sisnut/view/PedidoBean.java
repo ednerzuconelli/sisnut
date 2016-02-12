@@ -15,7 +15,7 @@ public class PedidoBean implements Serializable {
 	private Pedido pedido= null;
 	
 	public PedidoBean() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public PedidoBean(Pedido pedido, Event event){

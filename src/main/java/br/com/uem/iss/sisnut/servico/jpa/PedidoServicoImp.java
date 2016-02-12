@@ -26,7 +26,7 @@ public class PedidoServicoImp implements PedidoServico {
 
 	@Override
 	public List<Pedido> findAll() {
-		// TODO Auto-generated method stub
+		
 		return (List<Pedido>) pedidorepositorio.findAll();
 	}
 

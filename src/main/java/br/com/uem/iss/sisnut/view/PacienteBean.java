@@ -21,7 +21,7 @@ public class PacienteBean implements Serializable {
 
   
 	public PacienteBean(Event success) {
-		// TODO Auto-generated constructor stub
+	
 	}
 
 

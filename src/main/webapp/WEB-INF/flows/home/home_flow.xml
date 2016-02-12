@@ -19,13 +19,16 @@
  	</view-state>
     
  	<view-state id="avaliacao" view="list_paciente_avaliacao.xhtml" >
-      	<transition on="cadastraravaliacao" to="cadastraravaliacao"></transition>
+      	<transition on="cadastraravaliacao" to="cadastraavaliacao"></transition>
     </view-state>	
     
- 	<view-state id="cadastraravaliacao" view="cadastro_avaliacao.xhtml" >
+ 	<view-state id="cadastraavaliacao" view="cadastro_avaliacao.xhtml" >
     	<on-entry >
         	<evaluate expression="avaliacaoControle.newAvaliacaoBean()" result="flowScope.avaliacaoBean" />
-      	</on-entry>  	
+      	</on-entry> 
+      	<transition on="salvar" to="avaliacao">
+      	    <evaluate expression="avaliacaoControle.salveAvaliacao(flowScope.avaliacaoBean,messageContext)"></evaluate>
+      	</transition> 	
     </view-state>
  		
     <view-state id="geraPedido" view="gera_pedido.xhtml" >

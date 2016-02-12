@@ -22,28 +22,28 @@ public class TipoRefeicaoServicoImp implements TipoRefeicaoServico {
 	@Transactional(readOnly=true)
 	@Override
 	public TipoRefeicao getById(Integer id) {
-		// TODO Auto-generated method stub
+		
 		return tiporefeicaorepositorio.getById(id);
 	}
     
 	@Transactional
 	@Override
 	public void save(TipoRefeicao tiporefeicao) {
-		// TODO Auto-generated method stub
+		
 		tiporefeicaorepositorio.save(tiporefeicao);
 	}
 
 	@Transactional
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
+		
 		tiporefeicaorepositorio.delete(id);
 	}
 
 	@Transactional(readOnly=true)
 	@Override
 	public List<TipoRefeicao> findAll() {
-		// TODO Auto-generated method stub
+		
 		return tiporefeicaorepositorio.findAll();
 	}
 

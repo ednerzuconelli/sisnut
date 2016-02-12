@@ -21,22 +21,28 @@ public class PacienteServicoImp implements PacienteServico {
 	
 	@Override
 	public void save(Paciente paciente) {
-		// TODO Auto-generated method stub
+	
 		pacienteRepositorio.save(paciente);
 		
 	}
 
 	@Override
 	public List<Paciente> findAll() {
-		// TODO Auto-generated method stub
+
 		return (List<Paciente>)pacienteRepositorio.findAll();
 	}
 
 	@Override
 	public List<Paciente> findAllativo() {
-		// TODO Auto-generated method stub
+	
 		
 		return (List<Paciente>)pacienteRepositorio.findAllativo();
+	}
+
+	@Override
+	public Paciente findPacienteById(int pacienteCod) {
+		
+		return pacienteRepositorio.findOne(pacienteCod);
 	}
 
 }

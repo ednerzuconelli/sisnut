@@ -22,14 +22,14 @@ public class ProdutoServicoImp implements ProdutoServico {
 	@Transactional(readOnly=true)
 	@Override
 	public Produto getById(Integer id) {
-		// TODO Auto-generated method stub
+		
 		return produtorepositorio.findOne(id);
 	}
 
 	@Transactional
 	@Override
 	public void save(Produto produto) {
-		// TODO Auto-generated method stub
+		
 		produtorepositorio.save(produto);
 	}
 	
@@ -37,7 +37,7 @@ public class ProdutoServicoImp implements ProdutoServico {
 	@Transactional(readOnly=true)
 	@Override
 	public List<Produto> findAll() {
-		// TODO Auto-generated method stub
+		
 		return  produtorepositorio.findAll();
 	}
 	
