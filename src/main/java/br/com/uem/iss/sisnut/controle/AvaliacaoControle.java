@@ -15,7 +15,7 @@ import br.com.uem.iss.sisnut.view.AvaliacaoBean;
 @Component("avaliacaoControle")
 public class AvaliacaoControle {
 
-	private int pacienteCod;
+	private Paciente pacienteSelecionado;
 	
 	@Autowired
 	private PacienteServico pacienteServico;
@@ -34,20 +34,22 @@ public class AvaliacaoControle {
 	public Event salveAvaliacao(AvaliacaoBean avaliacaoBean, MessageContext messageContext){
 		
 		Avaliacao avaliacao = avaliacaoBean.getAvaliacao();
-		Paciente paciente = pacienteServico.findPacienteById(this.getPacienteCod());
+		Paciente paciente = pacienteServico.findPacienteById(pacienteSelecionado.getCod());
 		avaliacao.setPessoa(paciente);
 		avaliacaoServico.save(avaliacao);
 		return new EventFactorySupport().success(this);
-		//WILLIANS Testar cadastro de avaliação
+		
 	}
 
-	public int getPacienteCod() {
-		return pacienteCod;
+	public Paciente getPacienteSelecionado() {
+		return pacienteSelecionado;
 	}
 
-	public void setPacienteCod(int pacienteCod) {
-		this.pacienteCod = pacienteCod;
+	public void setPacienteSelecionado(Paciente pacienteSelecionado) {
+		this.pacienteSelecionado = pacienteSelecionado;
 	}
+
+
 
 	
 
