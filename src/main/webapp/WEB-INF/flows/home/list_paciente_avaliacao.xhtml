@@ -43,7 +43,7 @@
 		         <p:column  headerText="Avaliacao" width="110">
 		               <p:commandButton value="Gerar Avaliação" icon="fa fa-fw fa-remove"
 		                  action="cadastraravaliacao" >
-		                   <f:setPropertyActionListener value="#{paciente.cod}" target="#{avaliacaoControle.pacienteCod}" /> 
+		                   <f:setPropertyActionListener value="#{paciente}" target="#{avaliacaoControle.pacienteSelecionado}" /> 
 		                </p:commandButton>                  
 		                  
 		               

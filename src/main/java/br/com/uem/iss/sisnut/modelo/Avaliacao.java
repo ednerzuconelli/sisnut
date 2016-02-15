@@ -1,17 +1,23 @@
 package br.com.uem.iss.sisnut.modelo;
 
+import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.joda.time.DateTime;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name="avaliacao" )
-public class Avaliacao {
+public class Avaliacao implements Serializable {
 
 	@Id
 	@Column(name="avaliacao_id")
@@ -20,6 +26,9 @@ public class Avaliacao {
 	
 	@Column(name="peso")
 	private float peso;
+	
+	@Column(name="data_cadastro", nullable=false)
+	private DateTime  dataCadatro;
 	
 	@Column(name="altura")
 	private float altura;
@@ -40,7 +49,8 @@ public class Avaliacao {
 	private float idademetabolica;
 	
 	
-	@Column(name="id_pessoa")
+	@ManyToOne
+	@JoinColumn(name="id_pessoa")
 	private Pessoa pessoa;
 
 
