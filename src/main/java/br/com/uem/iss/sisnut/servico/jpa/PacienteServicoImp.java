@@ -39,10 +39,12 @@ public class PacienteServicoImp implements PacienteServico {
 		return (List<Paciente>)pacienteRepositorio.findAllativo();
 	}
 
+	@Transactional(readOnly=true)
 	@Override
 	public Paciente findPacienteById(int pacienteCod) {
-		
 		return pacienteRepositorio.findOne(pacienteCod);
 	}
+
+	
 
 }

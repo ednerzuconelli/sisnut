@@ -16,66 +16,40 @@
 				<div class="ui-grid ui-grid-responsive">
 					<div class="ui-grid-row">
 						<h:panelGrid columns="2">
-							<div class="ui-grid-col-4">
+							 <div class="ui-grid-col-4">
 								<h:outputLabel for="Paciente">#{msg['paciente']}</h:outputLabel>
 							</div>
 							<div class="ui-grid-col-8">
 
 								<p:autoComplete id="paciente"
-									value="#{pedidoBean.pedido.paciente}"
+									value="#{paciente}"
 									completeMethod="#{pedidoControle.completePaciente}" var="paciente"
 									itemLabel="#{paciente.nome}" itemValue="#{paciente}"
 									converter="pacienteConverter" forceSelection="true" size="60">
-									<!-- <f:facet name="itemtip">
-										<h:panelGrid columns="2" cellpadding="5">
-											<f:facet name="header">
-												<h:outputText styleClass="ui-theme ui-theme-#{theme.name}"
-													style="margin-left:50px" />
-											</f:facet>
-
-											<h:outputText value="Display:" />
-											<h:outputText value="#{theme.displayName}" />
-
-											<h:outputText value="Key" />
-											<h:outputText value="#{theme.name}" />
-										</h:panelGrid>
-									</f:facet>  -->
+									   
 								</p:autoComplete>
 
 							</div>
-							<div class="ui-grid-col-4">
+							 <div class="ui-grid-col-4">
 								<h:outputLabel for="produto">#{msg['produto']}</h:outputLabel>
 							</div>
 							<div class="ui-grid-col-8">
 
 								<p:autoComplete id="produto"
-									value="#{pedidoBean.pedido.produto}"
+									value="#{produto}"
 									completeMethod="#{pedidoControle.completeProduto}" var="produto"
 									itemLabel="#{produto.produto}" itemValue="#{produto}"
 									converter="produtoConverter" forceSelection="true" size="60">
-									<!-- <f:facet name="itemtip">
-										<h:panelGrid columns="2" cellpadding="5">
-											<f:facet name="header">
-												<h:outputText styleClass="ui-theme ui-theme-#{theme.name}"
-													style="margin-left:50px" />
-											</f:facet>
-
-											<h:outputText value="Display:" />
-											<h:outputText value="#{theme.displayName}" />
-
-											<h:outputText value="Key" />
-											<h:outputText value="#{theme.name}" />
-										</h:panelGrid>
-									</f:facet>  -->
+									
 								</p:autoComplete>
 
-							</div>
-							<div class="ui-grid-col-4">
+							</div> 
+							 <div class="ui-grid-col-4">
 								<h:outputLabel for="data">#{msg['data_pedido']}</h:outputLabel>
 							</div>
 							<div class="ui-grid-col-8">
 								<p:calendar id="data" value="#{pedidoBean.pedido.dataPedido}"
-									required="true" effect="fold" label="#{msg['data_pedido']}" />
+									required="true" effect="fold" label="#{msg['data_pedido']}" pattern="dd-MM-yyyy" mask="true"  />
 							</div>
 							<div class="ui-grid-col-4">
 								<h:outputLabel for="quantidade">#{msg['quantidade_pedido']}</h:outputLabel>
@@ -98,8 +72,10 @@
 				</div>
 
 
-				<h:panelGrid columns="1">
+				<h:panelGrid columns="2">
 					<p:commandButton value="Cadastrar" action="salvar">
+					</p:commandButton>
+					<p:commandButton value="Cancelar" action="voltar">
 					</p:commandButton>
 				</h:panelGrid>
 

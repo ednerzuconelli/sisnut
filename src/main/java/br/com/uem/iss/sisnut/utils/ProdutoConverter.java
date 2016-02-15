@@ -7,9 +7,12 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 
+import org.springframework.stereotype.Service;
+
 import br.com.uem.iss.sisnut.modelo.Produto;
 import br.com.uem.iss.sisnut.servico.ProdutoServico;
 
+@Service
 @FacesConverter("produtoConverter")
 public class ProdutoConverter implements Converter {
 

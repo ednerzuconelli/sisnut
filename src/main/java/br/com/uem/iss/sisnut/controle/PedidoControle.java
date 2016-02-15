@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.webflow.action.EventFactorySupport;
 import org.springframework.webflow.execution.Event;
 
+import testes.testePedido;
 import br.com.uem.iss.sisnut.modelo.Paciente;
 import br.com.uem.iss.sisnut.modelo.Pedido;
 import br.com.uem.iss.sisnut.modelo.Produto;
@@ -19,7 +20,7 @@ import br.com.uem.iss.sisnut.servico.ProdutoServico;
 import br.com.uem.iss.sisnut.view.PedidoBean;
 
 @Component("pedidoControle")
-public class PedidoControle {
+public class PedidoControle extends testePedido {
 
 	@Autowired
 	private PedidoServico pedidoservico;
@@ -66,9 +67,7 @@ public class PedidoControle {
 	public Event salvePedido(PedidoBean pedidobean, MessageContext messageContext){
 		MessageBuilder messageBuilder=null;
 		try{
-			System.out.println("Teste de inserçao pedido " );
 			Pedido pedido = pedidobean.getPedido();
-			
 			pedidoservico.save(pedido);
 			
 		}catch (Throwable ex3){

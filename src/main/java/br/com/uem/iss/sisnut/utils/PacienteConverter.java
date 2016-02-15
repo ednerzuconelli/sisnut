@@ -7,18 +7,27 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import br.com.uem.iss.sisnut.modelo.Paciente;
 import br.com.uem.iss.sisnut.servico.PacienteServico;
 
+@Service
 @FacesConverter("pacienteConverter")
 public class PacienteConverter implements Converter {
+
+	@Autowired
+	private PacienteServico service;
 
 	@Override
 	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
 		if(value != null && value.trim().length() > 0) {
             try {
-                PacienteServico service = (PacienteServico) fc.getExternalContext().getApplicationMap().get("pacienteServico");
-                return service.findAll().get(Integer.parseInt(value));
+            	System.out.println("teste converter01 paciente "+value);
+            	Paciente paciente=service.findPacienteById(Integer.parseInt(value));
+            	System.out.println("teste converter paciente "+Integer.parseInt(value));
+                return paciente;
             } catch(NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro de Conversão", "Paciente inválido."));
             }
@@ -31,7 +40,7 @@ public class PacienteConverter implements Converter {
 	@Override
 	public String getAsString(FacesContext fc, UIComponent uic, Object object) {
 		if(object != null) {
-            return String.valueOf(((Paciente) object).getCod());
+			return String.valueOf(((Paciente) object).getCod());
         }
         else {
             return null;
