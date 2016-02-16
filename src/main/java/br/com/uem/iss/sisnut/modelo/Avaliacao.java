@@ -48,6 +48,8 @@ public class Avaliacao implements Serializable {
 	@Column(name="idademetabolica")
 	private float idademetabolica;
 	
+	@Column(name="imc")
+	private float imc;
 	
 	@ManyToOne
 	@JoinColumn(name="id_pessoa")
