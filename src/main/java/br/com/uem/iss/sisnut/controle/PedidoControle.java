@@ -94,7 +94,9 @@ public class PedidoControle extends testePedido {
 	
 	public List<Pedido> findAll(){
 		List<Pedido> newp = null;
+		System.out.println("teste de fin pedido");
 		newp = pedidoservico.findAll();
+		System.out.println("imprimir pedidos " +newp.toString());
 		return newp;
 	}
 	
