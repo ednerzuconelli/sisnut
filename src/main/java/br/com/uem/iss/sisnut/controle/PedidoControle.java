@@ -31,6 +31,16 @@ public class PedidoControle extends testePedido {
 	@Autowired
 	private PacienteServico pacienteservico;
 	
+	private Pedido pedidoSelecionado;
+	
+	public Pedido getPedidoSelecionado() {
+		return pedidoSelecionado;
+	}
+
+	public void setPedidoSelecionado(Pedido pedidoSelecionado) {
+		this.pedidoSelecionado = pedidoSelecionado;
+	}
+
 	public PedidoBean newPedidoBean(){
     	Pedido pedido = new Pedido();
     	return new PedidoBean(pedido, new EventFactorySupport().success(this));
@@ -82,5 +92,10 @@ public class PedidoControle extends testePedido {
 		
 	}
 	
+	public List<Pedido> findAll(){
+		List<Pedido> newp = null;
+		newp = pedidoservico.findAll();
+		return newp;
+	}
 	
 }
