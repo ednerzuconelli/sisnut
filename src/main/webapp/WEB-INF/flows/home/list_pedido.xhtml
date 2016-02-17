@@ -1,0 +1,62 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<h:head>
+	<title>Sistema para Nutricionistas</title>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:messages>
+			<p:dataTable id="listPedido" var="pedido"
+				value="#{pedidoControle.findAll()}"
+				emptyMessage="Nenhum Pedido realizado" rowKey="#{pedido.id}"  >
+				<f:facet name="header">
+                      Pedidos em aberto
+                </f:facet>
+				<p:column headerText="Id" filterBy="#{pedido.id}" width="105"
+					sortBy="{pedido.id}">
+					<h:outputText value="#{pedido.id}" />
+				</p:column>
+
+				
+				<p:column headerText="Data" filterBy="#{pedido.dataPedido}" width="105"
+					sortBy="{pedido.dataPedido}">
+					<h:outputText value="#{pedido.dataPedido}" />
+				</p:column>
+				
+				<p:column  headerText="Editar" width="110">
+		               <p:commandButton value="Editar" icon="fa fa-fw fa-remove"
+		                  action="edit" update="listPedido">
+		                   <f:setPropertyActionListener value="#{pedido}" target="#{pedidoControle.pedidoSelecionado}" /> 
+		                </p:commandButton>                  
+		                  
+		               
+		         </p:column>
+				
+				 <p:column  headerText="Delete" width="110">
+		               <p:commandButton value="Delete" icon="fa fa-fw fa-remove"
+		                  action="delete" update="listPedido">
+		                   <f:setPropertyActionListener value="#{pedido}" target="#{pedidoControle.pedidoSelecionado}" /> 
+		                </p:commandButton>                  
+		                  
+		               
+		         </p:column>
+
+				<f:facet name="footer">
+					<h:outputText value="Existem " />
+					<h:outputText value="#{fn:length(produtoControle.findAll())}" />
+					<h:outputText value=" pedidos pendentes. " />
+
+
+				</f:facet>
+
+			</p:dataTable>
+
+			<p:commandButton value="Cadastrar pedido" action="pedido"></p:commandButton>
+			
+		</p:messages>
+	</h:form>
+</h:body>
+</h:html>

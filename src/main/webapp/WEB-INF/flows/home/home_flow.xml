@@ -14,7 +14,7 @@
 	 	<transition on="cadusuario" to="cadastroUsuario"> </transition>
  		<transition on="listPaciente" to="listPaciente"> </transition>
  		<transition on="listUsuario" to="listUsuario"> </transition>
- 		<transition on="pedido" to="geraPedido"> </transition>
+ 		<transition on="pedido" to="listPedido"> </transition>
  		<transition on="avaliacao" to="avaliacao"></transition>	
  	</view-state>
     
@@ -31,14 +31,24 @@
       	</transition> 	
     </view-state>
  		
+    <view-state id="ListPedido" view="list_pedido.xhtml" >
+      	<on-entry >
+        	<evaluate expression="pedidoControle.findAll()" result="flowScope.pedidoBean" />
+      	</on-entry>
+      	<transition on="pedido" to="geraPedido">
+      	  <!--   <evaluate expression="pedidoControle.salvePedido(flowScope.pedidoBean, messageContext)"></evaluate> -->
+      	</transition>
+    </view-state>
+    
     <view-state id="geraPedido" view="gera_pedido.xhtml" >
       	<on-entry >
         	<evaluate expression="pedidoControle.newPedidoBean()" result="flowScope.pedidoBean" />
       	</on-entry>
-      	<transition on="salvar" to="inicio">
+      	<transition on="salvar" to="listPedido">
       	  <!--   <evaluate expression="pedidoControle.salvePedido(flowScope.pedidoBean, messageContext)"></evaluate> -->
       	</transition>
     </view-state>
+    
     
     <view-state id="listUsuario" view="list_usuario.xhtml" >
       	<on-entry >
