@@ -40,7 +40,7 @@
       	</transition> 	
     </view-state>
  		
-    <view-state id="ListPedido" view="list_pedido.xhtml" >
+    <view-state id="listPedido" view="list_pedido.xhtml" >
       	<on-entry >
         	<evaluate expression="pedidoControle.findAll()" result="flowScope.pedidoBean" />
       	</on-entry>

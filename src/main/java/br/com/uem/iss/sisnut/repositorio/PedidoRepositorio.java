@@ -1,6 +1,5 @@
 package br.com.uem.iss.sisnut.repositorio;
 
-import java.io.Serializable;
 
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.CrudRepository;

@@ -24,9 +24,9 @@ public class PedidoServicoImp implements PedidoServico {
 		pedidorepositorio.save(pedido);
 	}
 
+	@Transactional(readOnly=true)
 	@Override
 	public List<Pedido> findAll() {
-		
 		return (List<Pedido>) pedidorepositorio.findAll();
 	}
 
