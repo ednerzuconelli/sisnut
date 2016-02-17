@@ -1,5 +1,8 @@
 package br.com.uem.iss.sisnut.controle;
 
+import java.util.List;
+
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
@@ -31,10 +34,19 @@ public class AvaliacaoControle {
 	
 	}
 	
+	public List<Avaliacao> findByPaciente(int cod){
+		List<Avaliacao> avaliacoes = avaliacaoServico.findByPaciente(cod);
+		return avaliacoes;
+		
+	}
+	
 	public Event salveAvaliacao(AvaliacaoBean avaliacaoBean, MessageContext messageContext){
 		
 		Avaliacao avaliacao = avaliacaoBean.getAvaliacao();
 		Paciente paciente = pacienteServico.findPacienteById(pacienteSelecionado.getCod());
+		DateTime data = new DateTime(System.currentTimeMillis());
+		
+		avaliacao.setDataCadatro(data);
 		avaliacao.setPessoa(paciente);
 		avaliacaoServico.save(avaliacao);
 		return new EventFactorySupport().success(this);

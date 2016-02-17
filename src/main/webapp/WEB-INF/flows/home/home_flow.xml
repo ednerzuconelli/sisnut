@@ -15,8 +15,17 @@
  		<transition on="listPaciente" to="listPaciente"> </transition>
  		<transition on="listUsuario" to="listUsuario"> </transition>
  		<transition on="pedido" to="geraPedido"> </transition>
- 		<transition on="avaliacao" to="avaliacao"></transition>	
+ 		<transition on="avaliacao" to="avaliacao"></transition>
+ 		<transition on="cardapio" to="cardapio"></transition>	
  	</view-state>
+    
+    <view-state id="cardapio" view="list_paciente_cardapio.xhtml" >
+      	<transition on="listaAvaliacaoCardapio" to="listaAvaliacaoCardapio"></transition>
+    </view-state>
+    
+    <view-state id="listaAvaliacaoCardapio" view="list_avaliacao_cardapio.xhtml" >
+      	<transition on="listaAvaliacaoCardapio" to="listaAvaliacaoCardapio"></transition>
+    </view-state>
     
  	<view-state id="avaliacao" view="list_paciente_avaliacao.xhtml" >
       	<transition on="cadastraravaliacao" to="cadastraavaliacao"></transition>

@@ -1,5 +1,7 @@
 package br.com.uem.iss.sisnut.servico.jpa;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,12 @@ public class AvaliacaoServicoImp implements AvaliacaoServico {
 	@Override
 	public void save(Avaliacao avaliacao) {
 		avaliacaoRepositorio.save(avaliacao);
+	}
+
+	@Override
+	public List<Avaliacao> findByPaciente(int cod) {
+		// TODO Auto-generated method stub
+		return avaliacaoRepositorio.findByPaciente(cod);
 	}
 
 }

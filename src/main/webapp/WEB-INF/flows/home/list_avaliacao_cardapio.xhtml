@@ -1,0 +1,60 @@
+
+<h:html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<h:head>
+	<title>Sistema para Nutricionistas</title>
+</h:head>
+<h:body>
+	<h:form id="form">
+		<p:messages>
+			
+			<p:dataTable id="listPaciente" var="avaliacao"
+				value="#{avaliacaoControle.findByPaciente(cardapioControle.pacienteSelecionado)}"
+				emptyMessage="Nenhum paciente cadastrado">
+				<f:facet name="header">
+                      Avaliações Do Paciente
+                </f:facet>
+				<p:column headerText="Cod" filterBy="#{avaliacao.id_avaliacao}" width="105"
+					sortBy="{avaliacao.id_avaliacao}">
+					<h:outputText value="#{avaliacao.id_avaliacao}" />
+				</p:column>
+
+				<p:column headerText="Data Cadastro" filterBy="#{avaliacao.data_cadastro}"
+					sortBy="{avaliacao.data_cadastro}">
+					<h:outputText value="#{avaliacao.data_cadastro}" />
+				</p:column>
+				
+				
+		         <p:column  headerText="Avaliacao" width="110">
+		               <p:commandButton value="Gerar Cardápio" icon="fa fa-fw fa-remove"
+		                  action="cadastrarcardapio" >
+		                   <f:setPropertyActionListener value="#{paciente}" target="" /> 
+		                </p:commandButton>                  
+		                  
+		               
+		         </p:column>
+				
+				 
+		         
+
+				<f:facet name="footer">
+					<h:outputText value="Existem " />
+					<h:outputText value="#{fn:length(pacienteControle.findAllativo())}" />
+					<h:outputText value=" pacientes cadastradas. " />
+
+
+				</f:facet>
+
+			</p:dataTable>
+
+			<p:commandButton value="Voltar" action="cadastroPaciente"></p:commandButton>
+			
+		</p:messages>
+	</h:form>
+</h:body>
+</h:html>

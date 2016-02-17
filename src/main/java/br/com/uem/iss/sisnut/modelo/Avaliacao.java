@@ -144,6 +144,17 @@ public class Avaliacao implements Serializable {
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
+
+
+	public DateTime getDataCadatro() {
+		return dataCadatro;
+	}
+
+
+	public void setDataCadatro(DateTime dataCadatro) {
+		this.dataCadatro = dataCadatro;
+	}
+	
 	
 	
 }
