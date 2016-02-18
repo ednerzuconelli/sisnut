@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.webflow.action.EventFactorySupport;
 import org.springframework.webflow.execution.Event;
 
@@ -29,6 +30,7 @@ import br.com.uem.iss.sisnut.servico.PacienteServico;
 import br.com.uem.iss.sisnut.view.PacienteBean;
 import br.com.uem.iss.sisnut.view.ProdutoBean;
 import br.com.uem.iss.sisnut.view.UsuarioBean;
+
 
 @Component("pacienteControle")
 public class PacienteControle {

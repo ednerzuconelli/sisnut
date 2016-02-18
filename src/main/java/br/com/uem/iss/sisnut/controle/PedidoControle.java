@@ -20,7 +20,7 @@ import br.com.uem.iss.sisnut.servico.ProdutoServico;
 import br.com.uem.iss.sisnut.view.PedidoBean;
 
 @Component("pedidoControle")
-public class PedidoControle extends testePedido {
+public class PedidoControle {
 
 	@Autowired
 	private PedidoServico pedidoservico;

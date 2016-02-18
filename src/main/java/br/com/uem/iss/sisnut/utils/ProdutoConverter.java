@@ -7,6 +7,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.uem.iss.sisnut.modelo.Produto;
@@ -15,14 +16,17 @@ import br.com.uem.iss.sisnut.servico.ProdutoServico;
 @Service
 @FacesConverter("produtoConverter")
 public class ProdutoConverter implements Converter {
+	
+	@Autowired
+	private ProdutoServico servico;
 
 	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
         if(value != null && value.trim().length() > 0) {
             try {
-                ProdutoServico service = (ProdutoServico) fc.getExternalContext().getApplicationMap().get("produtoServico");
-                return service.findAll().get(Integer.parseInt(value));
+                Produto produto = servico.getById(Integer.parseInt(value));
+                return produto;
             } catch(NumberFormatException e) {
-                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro de Conversão", "Produto inválido."));
+                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro de Conversão "+e, "Produto inválido."));
             }
         }
         else {

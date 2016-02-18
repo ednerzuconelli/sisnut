@@ -19,6 +19,7 @@ public class PedidoServicoImp implements PedidoServico {
 	@Autowired
 	private PedidoRepositorio pedidorepositorio;
 	
+	@Transactional
 	@Override
 	public void save(Pedido pedido) {
 		pedidorepositorio.save(pedido);

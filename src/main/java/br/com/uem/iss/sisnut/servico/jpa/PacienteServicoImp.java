@@ -42,6 +42,7 @@ public class PacienteServicoImp implements PacienteServico {
 	@Transactional(readOnly=true)
 	@Override
 	public Paciente findPacienteById(int pacienteCod) {
+		System.out.println("teste de servico "+ pacienteCod);
 		return pacienteRepositorio.findOne(pacienteCod);
 	}
 

@@ -25,11 +25,13 @@ public class PacienteConverter implements Converter {
 		if(value != null && value.trim().length() > 0) {
             try {
             	System.out.println("teste converter01 paciente "+value);
-            	Paciente paciente=service.findPacienteById(Integer.parseInt(value));
+            	service = (PacienteServico) fc.getExternalContext().getApplicationMap().get("serviceConverter");
+            	System.out.println("teste converter02 paciente "+service);
+            	Paciente paciente = service.findPacienteById(Integer.parseInt(value));
             	System.out.println("teste converter paciente "+Integer.parseInt(value));
                 return paciente;
             } catch(NumberFormatException e) {
-                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro de Conversão", "Paciente inválido."));
+                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro de Conversão "+e, "Paciente inválido."));
             }
         }
         else {

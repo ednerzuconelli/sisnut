@@ -15,7 +15,7 @@
 				<f:facet name="header">
                       Pedidos em aberto
                 </f:facet>
-				<p:column headerText="Id" filterBy="#{pedido.id}" width="105"
+				 <p:column headerText="Id" filterBy="#{pedido.id}" width="105"
 					sortBy="{pedido.id}">
 					<h:outputText value="#{pedido.id}" />
 				</p:column>
@@ -42,7 +42,7 @@
 		                </p:commandButton>                  
 		                  
 		               
-		         </p:column>
+		         </p:column>  
 
 				<f:facet name="footer">
 					<h:outputText value="Existem " />
@@ -55,7 +55,8 @@
 			</p:dataTable>
 
 			<p:commandButton value="Cadastrar pedido" action="pedido"></p:commandButton>
-			
+			<p:commandButton value="Home" action="voltar"></p:commandButton>
+			<p:commandButton value="Enviar Pedidos" ></p:commandButton>
 		</p:messages>
 	</h:form>
 </h:body>
