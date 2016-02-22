@@ -1,56 +1,59 @@
-<h:html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:h="http://java.sun.com/jsf/html" 
-      xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:p="http://primefaces.org/ui" 
-      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 <h:head>
 	<title>Sistema para Nutricionistas</title>
 </h:head>
 <h:body>
+	<h:form id="form">
+		<p:messages>
+			
+			<p:dataTable id="listPaciente" var="refeicao"
+				value="#{flowScope.cardapioBean.cardapio.refeicao}"
+				emptyMessage="Cardápio Não Gerado">
+				<f:facet name="header">
+                      Gerador de Cardápios
+                </f:facet>
+                
+						
+				
+					<p:subTable  var="alimento"
+						value="#{refeicao.alimentos}"
+						emptyMessage="Nenhum alimento cadastrado">
+						
+						<f:facet name="header">
+                      		<h:outputText value="#{refeicao.tipoRefeicao.tipoRefeicao}" />
+                		</f:facet>
+						
+						
+						<p:column headerText="Alimento" filterBy="#{alimento.produto.produto}" width="105"
+							sortBy="{alimento.produto.produto}">
+							<h:outputText value="#{alimento.produto.produto}" />
+						</p:column>
 
-		<h:form id="form1" >
-			<h:messages>
-				<f:validateBean>
-					<h1>Cadastro de Usuários</h1> 
-					<div class="ui-grid ui-grid-responsive">
-						<div class="ui-grid-row">
-							<div class="ui-grid-col-4">
-								<h:outputLabel for="login">#{msg['usuario']}</h:outputLabel>
-							</div>
-							<div class="ui-grid-col-8">
-								<p:inputText id="login" value="#{usuarioBean.usuario.login}"
-									required="true" size="60" label="login" />
-							</div>
-						</div>
-						<div class="ui-grid-row">
-							<div class="ui-grid-col-4">
-								<h:outputLabel for="senha">#{msg['senha']}</h:outputLabel>
-							</div>
-							<div class="ui-grid-col-8">
-								<p:inputText id="senha" value="#{usuarioBean.usuario.senha}"
-									required="true" size="60" label="senha" type="password"/>
-							</div>
-						</div>
-						<div class="ui-grid-row">
-							<div class="ui-grid-col-4">
-								<h:outputLabel for="email">#{msg['email']}</h:outputLabel>
-							</div>
-							<div class="ui-grid-col-8">
-								<p:inputText id="email" value="#{usuarioBean.usuario.email}"
-									required="true" size="60" label="email" />
-							</div>
-						</div>
-					</div>
-
-
-					<h:panelGrid columns="1">
-						<p:commandButton value="Cadastrar" action="salvar" >
-						</p:commandButton>
-					</h:panelGrid>
+						<p:column headerText="Quantidade"
+							filterBy="#{alimento.quantidade}"
+							sortBy="{alimento.quantidade}">
+							<h:outputText value="#{alimento.quantidade}" />
+						</p:column>
 					
-				</f:validateBean>
-			</h:messages>
-		</h:form>
 
-	</h:body>
+
+					</p:subTable>
+					
+
+
+			
+			</p:dataTable>
+
+			<p:commandButton value="Voltar" action="cadastroPaciente"></p:commandButton>
+			
+		</p:messages>
+	</h:form>
+</h:body>
 </h:html>

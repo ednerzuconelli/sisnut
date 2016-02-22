@@ -9,10 +9,12 @@ import org.springframework.data.repository.core.CrudMethods;
 import org.springframework.data.repository.query.Param;
 
 import br.com.uem.iss.sisnut.modelo.Avaliacao;
+import br.com.uem.iss.sisnut.modelo.Paciente;
+
 
 public interface AvaliacaoRepositorio extends CrudRepository<Avaliacao, Integer>, JpaSpecificationExecutor<Avaliacao>{
 
 	@Query("select a from Avaliacao a where a.pessoa=:cod")
-	List<Avaliacao> findByPaciente(@Param("cod") int cod);
+	public List<Avaliacao> findByPaciente(@Param("cod") Paciente cod);
 
 }

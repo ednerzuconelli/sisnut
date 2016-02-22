@@ -24,7 +24,7 @@ public class TipoRefeicao implements Serializable {
 	
 	@NotNull @NotEmpty
 	@Column(name="tiporefeicao", nullable=false, length=128)
-	private String tiporefeicao;
+	private String tipoRefeicao;
 	
 	@Column(name="ativo")
 	private Integer ativo;
@@ -37,12 +37,12 @@ public class TipoRefeicao implements Serializable {
 		this.id = id;
 	}
 
-	public String getTiporefeicao() {
-		return tiporefeicao;
+	public String getTipoRefeicao() {
+		return tipoRefeicao;
 	}
 
 	public void setTiporefeicao(String tiporefeicao) {
-		this.tiporefeicao = tiporefeicao;
+		this.tipoRefeicao = tiporefeicao;
 	}
 
 	public Integer getAtivo() {

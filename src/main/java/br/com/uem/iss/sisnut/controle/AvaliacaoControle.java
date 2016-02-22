@@ -34,8 +34,10 @@ public class AvaliacaoControle {
 	
 	}
 	
-	public List<Avaliacao> findByPaciente(int cod){
-		List<Avaliacao> avaliacoes = avaliacaoServico.findByPaciente(cod);
+
+	
+	public List<Avaliacao> findByPaciente(){
+		List<Avaliacao> avaliacoes = avaliacaoServico.findByPaciente(pacienteSelecionado);
 		return avaliacoes;
 		
 	}
