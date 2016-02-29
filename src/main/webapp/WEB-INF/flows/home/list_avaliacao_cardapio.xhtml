@@ -14,26 +14,26 @@
 		<p:messages>
 			
 			<p:dataTable id="listPaciente" var="avaliacao"
-				value="#{avaliacaoControle.findByPaciente(cardapioControle.pacienteSelecionado)}"
+				value="#{avaliacaoControle.findByPaciente()}"
 				emptyMessage="Nenhum paciente cadastrado">
 				<f:facet name="header">
                       Avaliações Do Paciente
                 </f:facet>
-				<p:column headerText="Cod" filterBy="#{avaliacao.id_avaliacao}" width="105"
-					sortBy="{avaliacao.id_avaliacao}">
-					<h:outputText value="#{avaliacao.id_avaliacao}" />
+				<p:column headerText="Cod" filterBy="#{avaliacao.id}" width="105"
+					sortBy="{avaliacao.id}">
+					<h:outputText value="#{avaliacao.id}" />
 				</p:column>
 
-				<p:column headerText="Data Cadastro" filterBy="#{avaliacao.data_cadastro}"
-					sortBy="{avaliacao.data_cadastro}">
-					<h:outputText value="#{avaliacao.data_cadastro}" />
+				<p:column headerText="Data Cadastro" filterBy="#{avaliacao.dataCadatro}"
+					sortBy="{avaliacao.dataCadatro}">
+					<h:outputText value="#{avaliacao.dataCadatro}" />
 				</p:column>
 				
 				
 		         <p:column  headerText="Avaliacao" width="110">
 		               <p:commandButton value="Gerar Cardápio" icon="fa fa-fw fa-remove"
 		                  action="cadastrarcardapio" >
-		                   <f:setPropertyActionListener value="#{paciente}" target="" /> 
+		                   <f:setPropertyActionListener value="#{avaliacao}" target="#{cardapioControle.avaliacaoSelecionado}" /> 
 		                </p:commandButton>                  
 		                  
 		               
@@ -44,7 +44,7 @@
 
 				<f:facet name="footer">
 					<h:outputText value="Existem " />
-					<h:outputText value="#{fn:length(pacienteControle.findAllativo())}" />
+					<h:outputText value="#{fn:length(avaliacaoControle.findByPaciente())}" />
 					<h:outputText value=" pacientes cadastradas. " />
 
 

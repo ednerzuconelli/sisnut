@@ -29,6 +29,6 @@
    </bean>      
     --> 
      
-    
+    <bean class="br.com.uem.iss.sisnut.utils.InitAdm" id="initAdm" lazy-init="false" /> 
    		
 </beans>

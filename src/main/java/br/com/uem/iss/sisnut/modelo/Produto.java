@@ -43,7 +43,7 @@ public class Produto implements Serializable {
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="categoriaproduto_id", updatable=true, insertable=true, nullable=true)
 	@Fetch(FetchMode.SELECT)
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private CategoriaProduto categoriaproduto;
 
 	@ManyToOne(fetch=FetchType.EAGER)
@@ -51,6 +51,9 @@ public class Produto implements Serializable {
 	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)
 	private TipoRefeicao tiporefeicao;
+	
+	@Column(name="unidade")
+	private String unidade;
 	
 	public Integer getId() {
 		return id;
@@ -106,6 +109,14 @@ public class Produto implements Serializable {
 
 	public void setCategoriaproduto(CategoriaProduto categoriaproduto) {
 		this.categoriaproduto = categoriaproduto;
+	}
+
+	public String getUnidade() {
+		return unidade;
+	}
+
+	public void setUnidade(String unidade) {
+		this.unidade = unidade;
 	}
 	
 	

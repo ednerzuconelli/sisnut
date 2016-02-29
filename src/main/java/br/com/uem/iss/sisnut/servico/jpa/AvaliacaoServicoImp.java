@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.uem.iss.sisnut.modelo.Avaliacao;
+import br.com.uem.iss.sisnut.modelo.Paciente;
 import br.com.uem.iss.sisnut.repositorio.AvaliacaoRepositorio;
 import br.com.uem.iss.sisnut.servico.AvaliacaoServico;
 
@@ -25,9 +26,9 @@ public class AvaliacaoServicoImp implements AvaliacaoServico {
 	}
 
 	@Override
-	public List<Avaliacao> findByPaciente(int cod) {
+	public List<Avaliacao> findByPaciente(Paciente paciente) {
 		// TODO Auto-generated method stub
-		return avaliacaoRepositorio.findByPaciente(cod);
+		return (List<Avaliacao>) avaliacaoRepositorio.findByPaciente(paciente);
 	}
 
 }

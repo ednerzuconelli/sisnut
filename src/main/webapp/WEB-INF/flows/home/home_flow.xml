@@ -20,10 +20,18 @@
  	</view-state>
     
     <view-state id="cardapio" view="list_paciente_cardapio.xhtml" >
+        
       	<transition on="listaAvaliacaoCardapio" to="listaAvaliacaoCardapio"></transition>
     </view-state>
     
     <view-state id="listaAvaliacaoCardapio" view="list_avaliacao_cardapio.xhtml" >
+      	<transition on="cadastrarcardapio" to="cadastrarcardapio"></transition>
+    </view-state>
+    
+    <view-state id="cadastrarcardapio" view="cadastro_cardapio.xhtml" >
+        <on-entry >
+        	<evaluate expression="cardapioControle.gerarCardapio()" result="flowScope.cardapioBean" />
+      	</on-entry> 
       	<transition on="listaAvaliacaoCardapio" to="listaAvaliacaoCardapio"></transition>
     </view-state>
     

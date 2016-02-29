@@ -29,9 +29,12 @@ public class testePedido {
 		pedido.setQuantidade(1.0);
 		pedido.setValorUnitario(10.0);
 		pedido.setEnviou(0);
+<<<<<<< HEAD
 		DateTime data = new DateTime();
 		pedido.setDataPedido(data);
 	
+=======
+>>>>>>> 2da9b508379e66d19595b1ae8b06d8fe965437eb
 		pedidoservico.save(pedido);
 		
 	}

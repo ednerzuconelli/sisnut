@@ -8,12 +8,13 @@ import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import br.com.uem.iss.sisnut.modelo.Paciente;
 import br.com.uem.iss.sisnut.servico.PacienteServico;
 
-@Service
+@Component
 @FacesConverter("pacienteConverter")
 public class PacienteConverter implements Converter {
 
@@ -25,7 +26,11 @@ public class PacienteConverter implements Converter {
 		if(value != null && value.trim().length() > 0) {
             try {
             	System.out.println("teste converter01 paciente "+value);
+<<<<<<< HEAD
             	Paciente paciente = new Paciente(); //pacienteServico.findPacienteById(Integer.parseInt(value));
+=======
+            	Paciente paciente = service.findPacienteById(Integer.parseInt(value));
+>>>>>>> 2da9b508379e66d19595b1ae8b06d8fe965437eb
             	System.out.println("teste converter paciente "+Integer.parseInt(value));
                 return paciente;
             } catch(NumberFormatException e) {
