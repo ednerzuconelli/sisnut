@@ -26,6 +26,7 @@ public class testePedido {
 		pedido.setProduto(produtoservico.getById(1));
 		pedido.setQuantidade(1.0);
 		pedido.setValorUnitario(10.0);
+		pedido.setEnviou(0);
 		pedidoservico.save(pedido);
 		
 	}

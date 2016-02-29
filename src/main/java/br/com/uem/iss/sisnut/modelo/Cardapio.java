@@ -28,7 +28,7 @@ public class Cardapio implements Serializable{
 	
 	@OneToMany(fetch=FetchType.EAGER)
 	@JoinColumn(name="cardapio_cod", updatable=true, insertable=true, nullable=true)
-	@Cascade(CascadeType.SAVE_UPDATE)
+	@Cascade(CascadeType.ALL)
 	private List<Refeicao> refeicao;
 
 	public Integer getId() {

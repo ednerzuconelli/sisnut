@@ -10,6 +10,7 @@ import org.springframework.webflow.action.EventFactorySupport;
 import br.com.uem.iss.sisnut.modelo.Alimento;
 import br.com.uem.iss.sisnut.modelo.Avaliacao;
 import br.com.uem.iss.sisnut.modelo.Cardapio;
+import br.com.uem.iss.sisnut.modelo.Produto;
 import br.com.uem.iss.sisnut.modelo.Refeicao;
 import br.com.uem.iss.sisnut.modelo.TipoRefeicao;
 import br.com.uem.iss.sisnut.repositorio.PerfilRepositorio;
@@ -19,8 +20,7 @@ import br.com.uem.iss.sisnut.view.CardapioBean;
 public class CardapioControle {
 	//WILLIANS Gerar Cardapios
 	
-	@Autowired
-	private PerfilRepositorio perfilRepositorio;
+	
 	
 	private Avaliacao avaliacaoSelecionado;
 
@@ -58,11 +58,17 @@ public class CardapioControle {
 		
 		List<Alimento> alimentos = new ArrayList<Alimento>();
 		Alimento cafe = new Alimento();
+		Produto cafeP = new Produto();
+		cafeP.setProduto("Café");
+		cafe.setProduto(cafeP);
+		
 		
 		cafe.setQuantidade(1);
 		Alimento pao = new Alimento();
-		
+		Produto paoP = new Produto();
+		paoP.setProduto("Pâo");
 		pao.setQuantidade(1);
+		pao.setProduto(paoP);
 		
 		alimentos.add(pao);
 		alimentos.add(cafe);
