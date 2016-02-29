@@ -1,8 +1,12 @@
 package br.com.uem.iss.sisnut.controle;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
@@ -78,6 +82,14 @@ public class PedidoControle {
 		MessageBuilder messageBuilder=null;
 		try{
 			Pedido pedido = pedidobean.getPedido();
+			pedido.setEnviou(0);
+			System.out.println("Teste do controlador pedido");
+			pedido.setPaciente(pacienteservico.findPacienteById(1));
+			pedido.setProduto(produtoservico.findAll());
+			DateTime data = new DateTime();
+			pedido.setDataPedido(data);
+			System.out.println("data "+ pedido.getDataPedido());
+			System.out.println("Teste do controlador pedido localizou" + pedido.getPaciente().getNome());
 			pedidoservico.save(pedido);
 			
 		}catch (Throwable ex3){

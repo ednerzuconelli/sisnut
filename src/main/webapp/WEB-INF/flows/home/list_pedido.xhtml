@@ -21,11 +21,6 @@
 				</p:column>
 
 				
-				<p:column headerText="Data" filterBy="#{pedido.data_pedido}" width="105"
-					sortBy="{pedido.data_pedido}">
-					<h:outputText value="#{pedido.data_pedido}" />
-				</p:column>
-				
 				<p:column  headerText="Editar" width="110">
 		               <p:commandButton value="Editar" icon="fa fa-fw fa-remove"
 		                  action="edit" update="listPedido">

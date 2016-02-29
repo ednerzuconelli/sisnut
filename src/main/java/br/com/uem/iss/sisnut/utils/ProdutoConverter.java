@@ -23,7 +23,9 @@ public class ProdutoConverter implements Converter {
 	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
         if(value != null && value.trim().length() > 0) {
             try {
-                Produto produto = servico.getById(Integer.parseInt(value));
+            	System.out.println("Teste do produto inserindo ");
+                Produto produto = new Produto(); //servico.getById(Integer.parseInt(value));
+                //System.out.println("Teste do produto inserindo "+ produto.getProduto().toString());
                 return produto;
             } catch(NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro de Conversão "+e, "Produto inválido."));

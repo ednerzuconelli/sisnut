@@ -43,6 +43,7 @@ public class PacienteControle {
 	@Autowired 
 	private EmailServico emailServico;
 	
+		
 	public PacienteBean newPacienteBean(){
 		return new PacienteBean(new EventFactorySupport().success(this));
 	}

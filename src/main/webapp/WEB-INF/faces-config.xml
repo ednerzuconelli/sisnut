@@ -26,5 +26,10 @@
      <display-name>produtoConverter</display-name>  
      <converter-id>produtoConverter</converter-id>  
      <converter-class>br.com.uem.iss.sisnut.utils.ProdutoConverter</converter-class>  
+   </converter>
+   <converter>  
+     <display-name>dateoConverter</display-name>  
+     <converter-id>dateConverter</converter-id>  
+     <converter-class>br.com.uem.iss.sisnut.utils.DateConverter</converter-class>  
    </converter>   
 </faces-config>

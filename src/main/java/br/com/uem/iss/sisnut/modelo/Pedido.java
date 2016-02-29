@@ -1,6 +1,7 @@
 package br.com.uem.iss.sisnut.modelo;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -45,23 +47,17 @@ public class Pedido implements Serializable {
 	@Column(name="enviou")
 	private Integer enviou;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.EAGER)
 	@JoinColumn(name="produto_id", updatable=true, insertable=true, nullable=true)
-	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)
-	private Produto produto;
+	private List<Produto> produto;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="paciente_id", updatable=true, insertable=true, nullable=true)
-	@Fetch(FetchMode.SELECT)
 	@Cascade(CascadeType.ALL)
 	private Paciente paciente;
 
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="fornecedor_id", updatable=true, insertable=true, nullable=true)
-	@Fetch(FetchMode.SELECT)
-	@Cascade(CascadeType.ALL)
-	private Fornecedor fornecedor;
+	
 
 	public Integer getId() {
 		return id;
@@ -103,13 +99,7 @@ public class Pedido implements Serializable {
 		this.enviou = enviou;
 	}
 
-	public Produto getProduto() {
-		return produto;
-	}
-
-	public void setProduto(Produto produto) {
-		this.produto = produto;
-	}
+	
 
 	public Paciente getPaciente() {
 		return paciente;
@@ -119,19 +109,19 @@ public class Pedido implements Serializable {
 		this.paciente = paciente;
 	}
 
-	public Fornecedor getFornecedor() {
-		return fornecedor;
+	public List<Produto> getProduto() {
+		return produto;
 	}
 
-	public void setFornecedor(Fornecedor fornecedor) {
-		this.fornecedor = fornecedor;
+	public void setProduto(List<Produto> produto) {
+		this.produto = produto;
 	}
 
 	@Override
 	public String toString() {
 		return "Pedido [id=" + id + ", dataPedido=" + dataPedido + ", quantidade=" + quantidade + ", valorUnitario="
 				+ valorUnitario + ", enviou=" + enviou + ", produto=" + produto + ", paciente=" + paciente
-				+ ", fornecedor=" + fornecedor + "]";
+				+ "]";
 	}
 	
 	
