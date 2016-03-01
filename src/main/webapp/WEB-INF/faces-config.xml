@@ -19,17 +19,17 @@
 	<converter>  
      <display-name>pacienteConverter</display-name>  
      <converter-id>pacienteConverter</converter-id>  
-     <converter-class>br.com.uem.iss.sisnut.utils.PacienteConverter</converter-class>  
+     <converter-class>br.com.uem.iss.sisnut.converter.PacienteConverter</converter-class>  
    </converter> 
    
    	<converter>  
      <display-name>produtoConverter</display-name>  
      <converter-id>produtoConverter</converter-id>  
-     <converter-class>br.com.uem.iss.sisnut.utils.ProdutoConverter</converter-class>  
+     <converter-class>br.com.uem.iss.sisnut.converter.ProdutoConverter</converter-class>  
    </converter>
    <converter>  
      <display-name>dateoConverter</display-name>  
      <converter-id>dateConverter</converter-id>  
-     <converter-class>br.com.uem.iss.sisnut.utils.DateConverter</converter-class>  
+     <converter-class>br.com.uem.iss.sisnut.converter.DateConverter</converter-class>  
    </converter>   
 </faces-config>

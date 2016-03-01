@@ -1,7 +1,7 @@
 package testes;
 
 import org.joda.time.DateTime;
-import org.junit.Test;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.uem.iss.sisnut.modelo.Pedido;
@@ -20,7 +20,7 @@ public class testePedido {
 	@Autowired
 	private ProdutoServico produtoservico;
 	
-	@Test
+	
 	public void deveriaCriarLogQuandoInserePedido() {
 		
 		Pedido pedido = new Pedido();
@@ -29,12 +29,11 @@ public class testePedido {
 		pedido.setQuantidade(1.0);
 		pedido.setValorUnitario(10.0);
 		pedido.setEnviou(0);
-<<<<<<< HEAD
+
 		DateTime data = new DateTime();
 		pedido.setDataPedido(data);
 	
-=======
->>>>>>> 2da9b508379e66d19595b1ae8b06d8fe965437eb
+
 		pedidoservico.save(pedido);
 		
 	}

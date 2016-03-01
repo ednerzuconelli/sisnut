@@ -30,7 +30,7 @@
     -->
     <faces:resources/>
 	
-	<context:component-scan base-package="br.com.uem.iss.sisnut.controle, br.com.uem.iss.sisnut.web" />
+	<context:component-scan base-package="br.com.uem.iss.sisnut.controle, br.com.uem.iss.sisnut.converter, br.com.uem.iss.sisnut.web" />
 
     <!--
         Maps request paths to flows in the flowRegistry

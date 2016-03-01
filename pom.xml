@@ -22,7 +22,7 @@
     <javaxServletJSPVersion>2.3.2-b01</javaxServletJSPVersion>
     <javaxServletVersion>3.0-alpha-1</javaxServletVersion>
     <war-nome>${project.artifactId}-${project.version}</war-nome> 
-    <CATALINA_HOME>C:\java\apache-tomcat-8.0.28</CATALINA_HOME>
+    <CATALINA_HOME>C:\java\apache-tomcat-9.0.0.M1</CATALINA_HOME>
   </properties>
   <dependencies>
   <dependency>
@@ -544,7 +544,7 @@
       </plugin>
       
       <!-- javadoc:javadoc -->
-      <plugin>
+      <!-- <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>2.9.1</version>
@@ -564,7 +564,14 @@
           <show>private</show>
         </configuration>
       </plugin>
-        
+         -->
+         <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-javadoc-plugin</artifactId>
+    <configuration>
+      <additionalparam>-Xdoclint:none</additionalparam>
+    </configuration>
+  </plugin>
     </plugins>
   </build>  
   

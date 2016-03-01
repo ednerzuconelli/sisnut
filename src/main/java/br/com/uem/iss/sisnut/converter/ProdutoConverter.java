@@ -1,4 +1,4 @@
-package br.com.uem.iss.sisnut.utils;
+package br.com.uem.iss.sisnut.converter;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;

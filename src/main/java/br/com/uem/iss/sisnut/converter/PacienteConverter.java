@@ -1,4 +1,4 @@
-package br.com.uem.iss.sisnut.utils;
+package br.com.uem.iss.sisnut.converter;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -14,8 +14,8 @@ import org.springframework.stereotype.Service;
 import br.com.uem.iss.sisnut.modelo.Paciente;
 import br.com.uem.iss.sisnut.servico.PacienteServico;
 
-@Component
-@FacesConverter("pacienteConverter")
+@Service
+@FacesConverter(value="pacienteConverter")
 public class PacienteConverter implements Converter {
 
 	@Autowired
@@ -26,11 +26,8 @@ public class PacienteConverter implements Converter {
 		if(value != null && value.trim().length() > 0) {
             try {
             	System.out.println("teste converter01 paciente "+value);
-<<<<<<< HEAD
-            	Paciente paciente = new Paciente(); //pacienteServico.findPacienteById(Integer.parseInt(value));
-=======
-            	Paciente paciente = service.findPacienteById(Integer.parseInt(value));
->>>>>>> 2da9b508379e66d19595b1ae8b06d8fe965437eb
+
+            	Paciente paciente = pacienteServico.findPacienteById(Integer.parseInt(value));
             	System.out.println("teste converter paciente "+Integer.parseInt(value));
                 return paciente;
             } catch(NumberFormatException e) {
